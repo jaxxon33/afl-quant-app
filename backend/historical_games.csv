@@ -1,0 +1,649 @@
+id,date,round,hteam,ateam,hscore,ascore,venue,winner,complete,margin
+34260,2023-03-16 19:20:00,1,Richmond,Carlton,58,58,M.C.G.,,100,0
+34261,2023-03-17 19:40:00,1,Geelong,Collingwood,103,125,M.C.G.,Collingwood,100,-22
+34262,2023-03-18 13:45:00,1,North Melbourne,West Coast,87,82,Docklands,North Melbourne,100,5
+34263,2023-03-18 16:35:00,1,Port Adelaide,Brisbane Lions,126,72,Adelaide Oval,Port Adelaide,100,54
+34264,2023-03-18 19:25:00,1,Melbourne,Western Bulldogs,115,65,M.C.G.,Melbourne,100,50
+34265,2023-03-18 20:00:00,1,Gold Coast,Sydney,61,110,Carrara,Sydney,100,-49
+34266,2023-03-19 13:10:00,1,Greater Western Sydney,Adelaide,106,90,Sydney Showground,Greater Western Sydney,100,16
+34267,2023-03-19 15:20:00,1,Hawthorn,Essendon,65,124,M.C.G.,Essendon,100,-59
+34268,2023-03-19 16:40:00,1,St Kilda,Fremantle,67,52,Docklands,St Kilda,100,15
+34269,2023-03-23 19:20:00,2,Carlton,Geelong,90,82,M.C.G.,Carlton,100,8
+34270,2023-03-24 19:55:00,2,Brisbane Lions,Melbourne,93,82,Gabba,Brisbane Lions,100,11
+34271,2023-03-25 13:45:00,2,Collingwood,Port Adelaide,135,64,M.C.G.,Collingwood,100,71
+34272,2023-03-25 16:35:00,2,Adelaide,Richmond,76,108,Adelaide Oval,Richmond,100,-32
+34273,2023-03-25 19:25:00,2,Western Bulldogs,St Kilda,41,92,Docklands,St Kilda,100,-51
+34274,2023-03-25 19:30:00,2,Fremantle,North Melbourne,72,73,Perth Stadium,North Melbourne,100,-1
+34275,2023-03-26 13:10:00,2,Sydney,Hawthorn,118,37,S.C.G.,Sydney,100,81
+34276,2023-03-26 15:20:00,2,Essendon,Gold Coast,108,80,Docklands,Essendon,100,28
+34277,2023-03-26 18:20:00,2,West Coast,Greater Western Sydney,100,81,Perth Stadium,West Coast,100,19
+34278,2023-03-30 19:20:00,3,Western Bulldogs,Brisbane Lions,67,53,Docklands,Western Bulldogs,100,14
+34279,2023-03-31 19:50:00,3,Collingwood,Richmond,63,49,M.C.G.,Collingwood,100,14
+34280,2023-04-01 13:45:00,3,Hawthorn,North Melbourne,80,61,York Park,Hawthorn,100,19
+34281,2023-04-01 16:35:00,3,Greater Western Sydney,Carlton,64,74,Sydney Showground,Carlton,100,-10
+34282,2023-04-01 19:25:00,3,St Kilda,Essendon,92,74,M.C.G.,St Kilda,100,18
+34283,2023-04-01 19:30:00,3,Port Adelaide,Adelaide,86,117,Adelaide Oval,Adelaide,100,-31
+34284,2023-04-02 14:10:00,3,Gold Coast,Geelong,73,54,Carrara,Gold Coast,100,19
+34285,2023-04-02 15:20:00,3,Melbourne,Sydney,134,84,M.C.G.,Melbourne,100,50
+34286,2023-04-02 17:20:00,3,Fremantle,West Coast,108,67,Perth Stadium,Fremantle,100,41
+34287,2023-04-06 19:35:00,4,Brisbane Lions,Collingwood,116,83,Gabba,Brisbane Lions,100,33
+34288,2023-04-07 16:20:00,4,North Melbourne,Carlton,84,107,Docklands,Carlton,100,-23
+34289,2023-04-08 13:45:00,4,Adelaide,Fremantle,111,72,Adelaide Oval,Adelaide,100,39
+34290,2023-04-08 16:35:00,4,Richmond,Western Bulldogs,84,89,M.C.G.,Western Bulldogs,100,-5
+34291,2023-04-08 19:30:00,4,St Kilda,Gold Coast,113,60,Docklands,St Kilda,100,53
+34292,2023-04-08 19:30:00,4,Sydney,Port Adelaide,64,66,S.C.G.,Port Adelaide,100,-2
+34293,2023-04-09 14:10:00,4,Essendon,Greater Western Sydney,88,75,Docklands,Essendon,100,13
+34294,2023-04-09 17:20:00,4,West Coast,Melbourne,63,126,Perth Stadium,Melbourne,100,-63
+34295,2023-04-10 15:20:00,4,Geelong,Hawthorn,127,45,M.C.G.,Geelong,100,82
+34296,2023-04-13 19:40:00,5,Adelaide,Carlton,118,62,Adelaide Oval,Adelaide,100,56
+34297,2023-04-14 17:10:00,5,Fremantle,Gold Coast,100,90,Norwood Oval,Fremantle,100,10
+34505,2023-04-14 20:10:00,5,Richmond,Sydney,78,122,Adelaide Oval,Sydney,100,-44
+34506,2023-04-15 13:10:00,5,Brisbane Lions,North Melbourne,152,77,Adelaide Hills,Brisbane Lions,100,75
+34300,2023-04-15 16:10:00,5,Essendon,Melbourne,104,77,Adelaide Oval,Essendon,100,27
+34301,2023-04-15 19:50:00,5,Port Adelaide,Western Bulldogs,70,56,Adelaide Oval,Port Adelaide,100,14
+34302,2023-04-16 13:10:00,5,Geelong,West Coast,136,89,Adelaide Oval,Geelong,100,47
+34510,2023-04-16 15:20:00,5,Greater Western Sydney,Hawthorn,77,75,Norwood Oval,Greater Western Sydney,100,2
+34511,2023-04-16 16:50:00,5,Collingwood,St Kilda,70,64,Adelaide Oval,Collingwood,100,6
+34305,2023-04-21 20:10:00,6,Fremantle,Western Bulldogs,69,118,Perth Stadium,Western Bulldogs,100,-49
+34306,2023-04-22 13:45:00,6,Port Adelaide,West Coast,109,69,Adelaide Oval,Port Adelaide,100,40
+34307,2023-04-22 16:35:00,6,Greater Western Sydney,Brisbane Lions,87,108,Manuka Oval,Brisbane Lions,100,-21
+34308,2023-04-22 19:25:00,6,Geelong,Sydney,130,37,Kardinia Park,Geelong,100,93
+34309,2023-04-23 13:10:00,6,Hawthorn,Adelaide,76,79,York Park,Adelaide,100,-3
+34310,2023-04-23 15:20:00,6,Carlton,St Kilda,60,82,Docklands,St Kilda,100,-22
+34311,2023-04-23 16:40:00,6,Gold Coast,North Melbourne,97,54,Carrara,Gold Coast,100,43
+34312,2023-04-24 19:25:00,6,Melbourne,Richmond,96,78,M.C.G.,Melbourne,100,18
+34313,2023-04-25 15:20:00,6,Collingwood,Essendon,90,77,M.C.G.,Collingwood,100,13
+34314,2023-04-28 19:50:00,7,St Kilda,Port Adelaide,76,83,Docklands,Port Adelaide,100,-7
+34315,2023-04-29 13:45:00,7,Brisbane Lions,Fremantle,115,67,Gabba,Brisbane Lions,100,48
+34316,2023-04-29 14:10:00,7,Sydney,Greater Western Sydney,106,107,S.C.G.,Greater Western Sydney,100,-1
+34317,2023-04-29 16:35:00,7,Western Bulldogs,Hawthorn,94,65,Docklands,Western Bulldogs,100,29
+34318,2023-04-29 19:25:00,7,Melbourne,North Melbourne,139,49,M.C.G.,Melbourne,100,90
+34319,2023-04-29 19:30:00,7,West Coast,Carlton,44,152,Perth Stadium,Carlton,100,-108
+34320,2023-04-30 13:10:00,7,Essendon,Geelong,104,132,M.C.G.,Geelong,100,-28
+34321,2023-04-30 15:20:00,7,Richmond,Gold Coast,48,72,Docklands,Gold Coast,100,-24
+34322,2023-04-30 16:40:00,7,Adelaide,Collingwood,58,59,Adelaide Oval,Collingwood,100,-1
+34323,2023-05-05 19:50:00,8,Carlton,Brisbane Lions,74,100,Docklands,Brisbane Lions,100,-26
+34324,2023-05-06 13:45:00,8,Richmond,West Coast,104,58,M.C.G.,Richmond,100,46
+34325,2023-05-06 14:10:00,8,Geelong,Adelaide,98,72,Kardinia Park,Geelong,100,26
+34326,2023-05-06 16:35:00,8,Gold Coast,Melbourne,85,90,Carrara,Melbourne,100,-5
+34328,2023-05-06 19:30:00,8,Fremantle,Hawthorn,117,48,Perth Stadium,Fremantle,100,69
+34327,2023-05-06 19:30:00,8,Greater Western Sydney,Western Bulldogs,71,86,Manuka Oval,Western Bulldogs,100,-15
+34329,2023-05-07 13:10:00,8,Port Adelaide,Essendon,92,87,Adelaide Oval,Port Adelaide,100,5
+34330,2023-05-07 15:20:00,8,Collingwood,Sydney,77,48,M.C.G.,Collingwood,100,29
+34331,2023-05-07 16:40:00,8,North Melbourne,St Kilda,34,64,Docklands,St Kilda,100,-30
+34332,2023-05-12 19:20:00,9,Richmond,Geelong,102,78,M.C.G.,Richmond,100,24
+34333,2023-05-12 20:40:00,9,West Coast,Gold Coast,43,113,Perth Stadium,Gold Coast,100,-70
+34334,2023-05-13 13:45:00,9,Sydney,Fremantle,86,103,S.C.G.,Fremantle,100,-17
+34335,2023-05-13 14:10:00,9,North Melbourne,Port Adelaide,65,135,Bellerive Oval,Port Adelaide,100,-70
+34336,2023-05-13 16:35:00,9,Hawthorn,Melbourne,49,103,M.C.G.,Melbourne,100,-54
+34337,2023-05-13 19:25:00,9,Brisbane Lions,Essendon,87,45,Gabba,Brisbane Lions,100,42
+34338,2023-05-13 19:30:00,9,Carlton,Western Bulldogs,59,79,Docklands,Western Bulldogs,100,-20
+34339,2023-05-14 13:10:00,9,Adelaide,St Kilda,121,69,Adelaide Oval,Adelaide,100,52
+34340,2023-05-14 16:40:00,9,Collingwood,Greater Western Sydney,120,55,M.C.G.,Collingwood,100,65
+34341,2023-05-19 19:50:00,10,Port Adelaide,Melbourne,80,76,Adelaide Oval,Port Adelaide,100,4
+34342,2023-05-20 13:45:00,10,North Melbourne,Sydney,90,93,Docklands,Sydney,100,-3
+34343,2023-05-20 14:10:00,10,Western Bulldogs,Adelaide,85,40,Eureka Stadium,Western Bulldogs,100,45
+34344,2023-05-20 16:35:00,10,Fremantle,Geelong,106,77,Perth Stadium,Fremantle,100,29
+34345,2023-05-20 19:30:00,10,Brisbane Lions,Gold Coast,107,64,Gabba,Brisbane Lions,100,43
+34346,2023-05-20 19:40:00,10,Essendon,Richmond,71,70,M.C.G.,Essendon,100,1
+34347,2023-05-21 13:10:00,10,Hawthorn,West Coast,142,26,York Park,Hawthorn,100,116
+34348,2023-05-21 15:20:00,10,Carlton,Collingwood,57,85,M.C.G.,Collingwood,100,-28
+34349,2023-05-21 16:40:00,10,Greater Western Sydney,St Kilda,80,92,Sydney Showground,St Kilda,100,-12
+34350,2023-05-26 19:50:00,11,Sydney,Carlton,77,51,S.C.G.,Sydney,100,26
+34351,2023-05-27 13:45:00,11,St Kilda,Hawthorn,78,88,Docklands,Hawthorn,100,-10
+34352,2023-05-27 14:10:00,11,Melbourne,Fremantle,72,79,M.C.G.,Fremantle,100,-7
+34353,2023-05-27 16:35:00,11,Geelong,Greater Western Sydney,74,81,Kardinia Park,Greater Western Sydney,100,-7
+34354,2023-05-27 19:25:00,11,Gold Coast,Western Bulldogs,84,77,Marrara Oval,Gold Coast,100,7
+34355,2023-05-27 19:40:00,11,West Coast,Essendon,46,96,Perth Stadium,Essendon,100,-50
+34356,2023-05-28 13:10:00,11,Richmond,Port Adelaide,67,77,M.C.G.,Port Adelaide,100,-10
+34357,2023-05-28 15:20:00,11,Collingwood,North Melbourne,105,70,Docklands,Collingwood,100,35
+34358,2023-05-28 16:40:00,11,Adelaide,Brisbane Lions,95,78,Adelaide Oval,Adelaide,100,17
+34359,2023-06-02 19:50:00,12,Melbourne,Carlton,61,44,M.C.G.,Melbourne,100,17
+34360,2023-06-03 13:45:00,12,Port Adelaide,Hawthorn,151,96,Adelaide Oval,Port Adelaide,100,55
+34361,2023-06-03 16:35:00,12,West Coast,Collingwood,57,120,Perth Stadium,Collingwood,100,-63
+34362,2023-06-03 19:25:00,12,Western Bulldogs,Geelong,75,97,Docklands,Geelong,100,-22
+34363,2023-06-03 19:30:00,12,Gold Coast,Adelaide,112,87,Marrara Oval,Gold Coast,100,25
+34364,2023-06-04 13:10:00,12,Greater Western Sydney,Richmond,104,110,Sydney Showground,Richmond,100,-6
+34365,2023-06-04 16:40:00,12,Essendon,North Melbourne,105,99,Docklands,Essendon,100,6
+34366,2023-06-08 19:10:00,13,Sydney,St Kilda,66,80,S.C.G.,St Kilda,100,-14
+34367,2023-06-09 19:50:00,13,Western Bulldogs,Port Adelaide,85,107,Docklands,Port Adelaide,100,-22
+34368,2023-06-10 13:45:00,13,Hawthorn,Brisbane Lions,98,73,M.C.G.,Hawthorn,100,25
+34369,2023-06-10 16:35:00,13,Adelaide,West Coast,174,52,Adelaide Oval,Adelaide,100,122
+34370,2023-06-10 19:25:00,13,Fremantle,Richmond,70,85,Perth Stadium,Richmond,100,-15
+34371,2023-06-11 15:20:00,13,North Melbourne,Greater Western Sydney,75,103,Bellerive Oval,Greater Western Sydney,100,-28
+34372,2023-06-11 19:15:00,13,Carlton,Essendon,52,86,M.C.G.,Essendon,100,-34
+34373,2023-06-12 15:20:00,13,Melbourne,Collingwood,66,62,M.C.G.,Melbourne,100,4
+34374,2023-06-15 19:40:00,14,Port Adelaide,Geelong,110,72,Adelaide Oval,Port Adelaide,100,38
+34375,2023-06-16 19:50:00,14,Brisbane Lions,Sydney,97,81,Gabba,Brisbane Lions,100,16
+34376,2023-06-17 16:35:00,14,Greater Western Sydney,Fremantle,106,36,Sydney Showground,Greater Western Sydney,100,70
+34377,2023-06-17 19:25:00,14,Richmond,St Kilda,90,70,M.C.G.,Richmond,100,20
+34378,2023-06-18 13:10:00,14,Carlton,Gold Coast,120,61,M.C.G.,Carlton,100,59
+34379,2023-06-18 16:40:00,14,North Melbourne,Western Bulldogs,84,105,Docklands,Western Bulldogs,100,-21
+34380,2023-06-22 19:20:00,15,Geelong,Melbourne,78,63,Kardinia Park,Geelong,100,15
+34381,2023-06-23 19:50:00,15,St Kilda,Brisbane Lions,56,84,Docklands,Brisbane Lions,100,-28
+34382,2023-06-24 16:35:00,15,Sydney,West Coast,205,34,S.C.G.,Sydney,100,171
+34383,2023-06-24 19:25:00,15,Fremantle,Essendon,93,61,Perth Stadium,Fremantle,100,32
+34384,2023-06-25 13:10:00,15,Collingwood,Adelaide,82,80,M.C.G.,Collingwood,100,2
+34385,2023-06-25 16:40:00,15,Gold Coast,Hawthorn,101,34,Carrara,Gold Coast,100,67
+34386,2023-06-29 19:20:00,16,Brisbane Lions,Richmond,134,53,Gabba,Brisbane Lions,100,81
+34390,2023-06-30 19:50:00,16,Sydney,Geelong,54,54,S.C.G.,,100,0
+34392,2023-07-01 13:45:00,16,Adelaide,North Melbourne,138,72,Adelaide Oval,Adelaide,100,66
+34391,2023-07-01 13:45:00,16,Western Bulldogs,Fremantle,102,73,Docklands,Western Bulldogs,100,29
+34388,2023-07-01 16:35:00,16,Gold Coast,Collingwood,42,120,Carrara,Collingwood,100,-78
+34387,2023-07-01 19:25:00,16,Essendon,Port Adelaide,74,78,M.C.G.,Port Adelaide,100,-4
+34389,2023-07-02 13:10:00,16,Hawthorn,Carlton,52,112,M.C.G.,Carlton,100,-60
+34393,2023-07-02 15:20:00,16,Melbourne,Greater Western Sydney,45,47,Traeger Park,Greater Western Sydney,100,-2
+34394,2023-07-02 16:40:00,16,West Coast,St Kilda,77,85,Perth Stadium,St Kilda,100,-8
+34399,2023-07-06 19:20:00,17,Richmond,Sydney,88,75,M.C.G.,Richmond,100,13
+34401,2023-07-07 19:50:00,17,Western Bulldogs,Collingwood,77,89,Docklands,Collingwood,100,-12
+34395,2023-07-08 13:45:00,17,Brisbane Lions,West Coast,116,35,Gabba,Brisbane Lions,100,81
+34398,2023-07-08 16:35:00,17,Greater Western Sydney,Hawthorn,85,72,Sydney Showground,Greater Western Sydney,100,13
+34400,2023-07-08 19:25:00,17,St Kilda,Melbourne,58,79,Docklands,Melbourne,100,-21
+34402,2023-07-08 19:40:00,17,Port Adelaide,Gold Coast,106,73,Adelaide Oval,Port Adelaide,100,33
+34397,2023-07-09 13:10:00,17,Geelong,North Melbourne,125,63,Kardinia Park,Geelong,100,62
+34396,2023-07-09 15:20:00,17,Essendon,Adelaide,115,97,Docklands,Essendon,100,18
+34403,2023-07-09 16:40:00,17,Fremantle,Carlton,45,98,Perth Stadium,Carlton,100,-53
+34410,2023-07-13 19:20:00,18,Sydney,Western Bulldogs,78,76,S.C.G.,Sydney,100,2
+34408,2023-07-14 19:50:00,18,Melbourne,Brisbane Lions,105,104,M.C.G.,Melbourne,100,1
+34405,2023-07-15 13:45:00,18,Collingwood,Fremantle,113,67,M.C.G.,Collingwood,100,46
+34407,2023-07-15 14:10:00,18,Gold Coast,St Kilda,77,51,Carrara,Gold Coast,100,26
+34404,2023-07-15 16:35:00,18,Carlton,Port Adelaide,122,72,Docklands,Carlton,100,50
+34406,2023-07-15 19:25:00,18,Geelong,Essendon,122,45,Kardinia Park,Geelong,100,77
+34411,2023-07-15 19:40:00,18,Adelaide,Greater Western Sydney,57,71,Adelaide Oval,Greater Western Sydney,100,-14
+34409,2023-07-16 13:10:00,18,North Melbourne,Hawthorn,40,88,Docklands,Hawthorn,100,-48
+34412,2023-07-16 16:40:00,18,West Coast,Richmond,60,98,Perth Stadium,Richmond,100,-38
+34415,2023-07-21 19:50:00,19,Essendon,Western Bulldogs,49,90,Docklands,Western Bulldogs,100,-41
+34418,2023-07-22 13:45:00,19,Richmond,Hawthorn,96,95,M.C.G.,Richmond,100,1
+34414,2023-07-22 14:10:00,19,Carlton,West Coast,140,69,Docklands,Carlton,100,71
+34413,2023-07-22 16:35:00,19,Brisbane Lions,Geelong,64,53,Gabba,Brisbane Lions,100,11
+34421,2023-07-22 19:40:00,19,Fremantle,Sydney,76,105,Perth Stadium,Sydney,100,-29
+34420,2023-07-22 19:40:00,19,Port Adelaide,Collingwood,83,85,Adelaide Oval,Collingwood,100,-2
+34416,2023-07-23 13:10:00,19,Greater Western Sydney,Gold Coast,103,63,Manuka Oval,Greater Western Sydney,100,40
+34417,2023-07-23 15:20:00,19,Melbourne,Adelaide,97,93,M.C.G.,Melbourne,100,4
+34419,2023-07-23 16:40:00,19,St Kilda,North Melbourne,69,61,Docklands,St Kilda,100,8
+34422,2023-07-28 19:50:00,20,Collingwood,Carlton,76,93,M.C.G.,Carlton,100,-17
+34424,2023-07-29 13:45:00,20,Geelong,Fremantle,64,71,Kardinia Park,Fremantle,100,-7
+34428,2023-07-29 13:45:00,20,Western Bulldogs,Greater Western Sydney,73,78,Eureka Stadium,Greater Western Sydney,100,-5
+34425,2023-07-29 16:35:00,20,Gold Coast,Brisbane Lions,96,55,Carrara,Gold Coast,100,41
+34423,2023-07-29 19:25:00,20,Essendon,Sydney,99,101,Docklands,Sydney,100,-2
+34429,2023-07-29 19:40:00,20,Adelaide,Port Adelaide,112,65,Adelaide Oval,Adelaide,100,47
+34426,2023-07-30 13:10:00,20,Hawthorn,St Kilda,93,122,Docklands,St Kilda,100,-29
+34427,2023-07-30 15:20:00,20,Richmond,Melbourne,98,130,M.C.G.,Melbourne,100,-32
+34430,2023-07-30 16:40:00,20,West Coast,North Melbourne,72,67,Perth Stadium,West Coast,100,5
+34437,2023-08-04 19:50:00,21,Western Bulldogs,Richmond,126,71,Docklands,Western Bulldogs,100,55
+34431,2023-08-05 13:45:00,21,Essendon,West Coast,73,72,Docklands,Essendon,100,1
+34438,2023-08-05 14:10:00,21,Adelaide,Gold Coast,89,61,Adelaide Oval,Adelaide,100,28
+34434,2023-08-05 16:35:00,21,Hawthorn,Collingwood,105,73,M.C.G.,Hawthorn,100,32
+34432,2023-08-05 19:25:00,21,Geelong,Port Adelaide,97,85,Kardinia Park,Geelong,100,12
+34433,2023-08-05 19:30:00,21,Greater Western Sydney,Sydney,85,96,Sydney Showground,Sydney,100,-11
+34435,2023-08-06 13:10:00,21,North Melbourne,Melbourne,71,103,Bellerive Oval,Melbourne,100,-32
+34436,2023-08-06 15:20:00,21,St Kilda,Carlton,54,73,Docklands,Carlton,100,-19
+34439,2023-08-06 16:40:00,21,Fremantle,Brisbane Lions,74,77,Perth Stadium,Brisbane Lions,100,-3
+34442,2023-08-11 19:50:00,22,Collingwood,Geelong,109,101,M.C.G.,Collingwood,100,8
+34444,2023-08-12 13:45:00,22,North Melbourne,Essendon,77,86,Docklands,Essendon,100,-9
+34446,2023-08-12 13:45:00,22,Sydney,Gold Coast,114,90,S.C.G.,Sydney,100,24
+34441,2023-08-12 16:35:00,22,Brisbane Lions,Adelaide,99,93,Gabba,Brisbane Lions,100,6
+34440,2023-08-12 19:30:00,22,Carlton,Melbourne,60,56,M.C.G.,Carlton,100,4
+34448,2023-08-12 20:10:00,22,West Coast,Fremantle,33,134,Perth Stadium,Fremantle,100,-101
+34443,2023-08-13 13:10:00,22,Hawthorn,Western Bulldogs,67,64,York Park,Hawthorn,100,3
+34445,2023-08-13 15:20:00,22,St Kilda,Richmond,93,57,Docklands,St Kilda,100,36
+34447,2023-08-13 16:40:00,22,Port Adelaide,Greater Western Sydney,136,85,Adelaide Oval,Port Adelaide,100,51
+34449,2023-08-18 19:50:00,23,Collingwood,Brisbane Lions,100,124,Docklands,Brisbane Lions,100,-24
+34453,2023-08-19 13:45:00,23,Richmond,North Melbourne,101,72,M.C.G.,Richmond,100,29
+34450,2023-08-19 14:10:00,23,Gold Coast,Carlton,87,91,Carrara,Carlton,100,-4
+34451,2023-08-19 16:35:00,23,Greater Western Sydney,Essendon,162,36,Sydney Showground,Greater Western Sydney,100,126
+34454,2023-08-19 19:25:00,23,St Kilda,Geelong,88,55,Docklands,St Kilda,100,33
+34456,2023-08-19 19:40:00,23,Adelaide,Sydney,73,74,Adelaide Oval,Sydney,100,-1
+34455,2023-08-20 13:10:00,23,Western Bulldogs,West Coast,85,92,Docklands,West Coast,100,-7
+34452,2023-08-20 15:20:00,23,Melbourne,Hawthorn,87,60,M.C.G.,Melbourne,100,27
+34457,2023-08-20 16:40:00,23,Fremantle,Port Adelaide,58,74,Perth Stadium,Port Adelaide,100,-16
+34460,2023-08-25 19:50:00,24,Essendon,Collingwood,31,101,M.C.G.,Collingwood,100,-70
+34462,2023-08-26 13:45:00,24,Hawthorn,Fremantle,56,93,M.C.G.,Fremantle,100,-37
+34463,2023-08-26 13:45:00,24,North Melbourne,Gold Coast,132,97,Bellerive Oval,North Melbourne,100,35
+34458,2023-08-26 16:35:00,24,Brisbane Lions,St Kilda,72,60,Gabba,Brisbane Lions,100,12
+34461,2023-08-26 19:25:00,24,Geelong,Western Bulldogs,79,104,Kardinia Park,Western Bulldogs,100,-25
+34466,2023-08-26 20:10:00,24,West Coast,Adelaide,78,123,Perth Stadium,Adelaide,100,-45
+34465,2023-08-27 12:30:00,24,Port Adelaide,Richmond,94,63,Adelaide Oval,Port Adelaide,100,31
+34464,2023-08-27 15:20:00,24,Sydney,Melbourne,56,77,S.C.G.,Melbourne,100,-21
+34459,2023-08-27 18:10:00,24,Carlton,Greater Western Sydney,73,105,Docklands,Greater Western Sydney,100,-32
+34676,2023-09-07 19:20:00,25,Collingwood,Melbourne,60,53,M.C.G.,Collingwood,100,7
+34674,2023-09-08 19:50:00,25,Carlton,Sydney,74,68,M.C.G.,Carlton,100,6
+34675,2023-09-09 15:20:00,25,St Kilda,Greater Western Sydney,77,101,M.C.G.,Greater Western Sydney,100,-24
+34677,2023-09-09 19:25:00,25,Brisbane Lions,Port Adelaide,123,75,Gabba,Brisbane Lions,100,48
+34678,2023-09-15 19:50:00,26,Melbourne,Carlton,71,73,M.C.G.,Carlton,100,-2
+34679,2023-09-16 19:40:00,26,Port Adelaide,Greater Western Sydney,70,93,Adelaide Oval,Greater Western Sydney,100,-23
+35045,2023-09-22 19:50:00,27,Collingwood,Greater Western Sydney,58,57,M.C.G.,Collingwood,100,1
+35046,2023-09-23 17:15:00,27,Brisbane Lions,Carlton,79,63,Gabba,Brisbane Lions,100,16
+34682,2023-09-30 14:30:00,28,Collingwood,Brisbane Lions,90,86,M.C.G.,Collingwood,100,4
+35700,2024-03-07 19:30:00,0,Sydney,Melbourne,86,64,S.C.G.,Sydney,100,22
+35701,2024-03-08 19:40:00,0,Brisbane Lions,Carlton,85,86,Gabba,Carlton,100,-1
+35702,2024-03-09 16:20:00,0,Gold Coast,Richmond,99,60,Carrara,Gold Coast,100,39
+35703,2024-03-09 19:30:00,0,Greater Western Sydney,Collingwood,114,82,Sydney Showground,Greater Western Sydney,100,32
+35704,2024-03-14 19:30:00,1,Carlton,Richmond,86,81,M.C.G.,Carlton,100,5
+35705,2024-03-15 19:40:00,1,Collingwood,Sydney,69,102,M.C.G.,Sydney,100,-33
+35706,2024-03-16 13:45:00,1,Essendon,Hawthorn,107,83,M.C.G.,Essendon,100,24
+35707,2024-03-16 16:35:00,1,Greater Western Sydney,North Melbourne,121,82,Sydney Showground,Greater Western Sydney,100,39
+35708,2024-03-16 19:30:00,1,Geelong,St Kilda,76,68,Kardinia Park,Geelong,100,8
+35709,2024-03-16 20:10:00,1,Gold Coast,Adelaide,60,54,Carrara,Gold Coast,100,6
+35710,2024-03-17 13:00:00,1,Melbourne,Western Bulldogs,109,64,M.C.G.,Melbourne,100,45
+35711,2024-03-17 16:00:00,1,Port Adelaide,West Coast,120,70,Adelaide Oval,Port Adelaide,100,50
+35712,2024-03-17 18:50:00,1,Fremantle,Brisbane Lions,93,70,Perth Stadium,Fremantle,100,23
+35713,2024-03-21 19:30:00,2,St Kilda,Collingwood,94,79,M.C.G.,St Kilda,100,15
+35714,2024-03-22 19:40:00,2,Adelaide,Geelong,77,96,Adelaide Oval,Geelong,100,-19
+35715,2024-03-23 13:45:00,2,North Melbourne,Fremantle,76,102,Docklands,Fremantle,100,-26
+35716,2024-03-23 16:35:00,2,Hawthorn,Melbourne,38,93,M.C.G.,Melbourne,100,-55
+35717,2024-03-23 19:30:00,2,Sydney,Essendon,131,101,S.C.G.,Sydney,100,30
+35718,2024-03-24 13:00:00,2,Western Bulldogs,Gold Coast,115,67,Eureka Stadium,Western Bulldogs,100,48
+35719,2024-03-24 16:00:00,2,Richmond,Port Adelaide,92,122,M.C.G.,Port Adelaide,100,-30
+35720,2024-03-24 18:50:00,2,West Coast,Greater Western Sydney,43,108,Perth Stadium,Greater Western Sydney,100,-65
+35721,2024-03-28 19:30:00,3,Brisbane Lions,Collingwood,72,92,Gabba,Collingwood,100,-20
+35722,2024-03-29 16:20:00,3,North Melbourne,Carlton,81,137,Docklands,Carlton,100,-56
+35723,2024-03-29 19:30:00,3,Fremantle,Adelaide,69,34,Perth Stadium,Fremantle,100,35
+35724,2024-03-30 16:20:00,3,Essendon,St Kilda,71,67,Docklands,Essendon,100,4
+35725,2024-03-30 19:30:00,3,Port Adelaide,Melbourne,89,96,Adelaide Oval,Melbourne,100,-7
+35726,2024-03-31 13:00:00,3,Western Bulldogs,West Coast,106,30,Docklands,Western Bulldogs,100,76
+35727,2024-03-31 16:00:00,3,Richmond,Sydney,82,77,M.C.G.,Richmond,100,5
+35728,2024-04-01 15:20:00,3,Hawthorn,Geelong,70,106,M.C.G.,Geelong,100,-36
+35729,2024-04-04 19:40:00,4,Adelaide,Melbourne,63,78,Adelaide Oval,Melbourne,100,-15
+35730,2024-04-05 17:10:00,4,Brisbane Lions,North Melbourne,112,42,Norwood Oval,Brisbane Lions,100,70
+35731,2024-04-05 20:10:00,4,Port Adelaide,Essendon,111,42,Adelaide Oval,Port Adelaide,100,69
+35732,2024-04-06 13:30:00,4,West Coast,Sydney,78,104,Adelaide Hills,Sydney,100,-26
+35733,2024-04-06 16:20:00,4,Fremantle,Carlton,63,73,Adelaide Oval,Carlton,100,-10
+35734,2024-04-06 20:10:00,4,Western Bulldogs,Geelong,91,95,Adelaide Oval,Geelong,100,-4
+35735,2024-04-07 12:30:00,4,Gold Coast,Greater Western Sydney,89,117,Adelaide Hills,Greater Western Sydney,100,-28
+35736,2024-04-07 15:20:00,4,Richmond,St Kilda,60,67,Norwood Oval,St Kilda,100,-7
+35737,2024-04-07 17:10:00,4,Collingwood,Hawthorn,77,72,Adelaide Oval,Collingwood,100,5
+35738,2024-04-11 19:30:00,5,Melbourne,Brisbane Lions,60,82,M.C.G.,Brisbane Lions,100,-22
+35739,2024-04-12 19:40:00,5,Western Bulldogs,Essendon,67,96,Docklands,Essendon,100,-29
+35740,2024-04-13 13:45:00,5,Greater Western Sydney,St Kilda,80,79,Manuka Oval,Greater Western Sydney,100,1
+35741,2024-04-13 16:35:00,5,Carlton,Adelaide,98,100,Docklands,Adelaide,100,-2
+35742,2024-04-13 19:30:00,5,Gold Coast,Hawthorn,109,56,Carrara,Gold Coast,100,53
+35743,2024-04-13 19:30:00,5,Port Adelaide,Fremantle,66,63,Adelaide Oval,Port Adelaide,100,3
+35744,2024-04-14 13:00:00,5,Geelong,North Melbourne,139,64,Kardinia Park,Geelong,100,75
+35745,2024-04-14 16:00:00,5,West Coast,Richmond,109,70,Perth Stadium,West Coast,100,39
+35746,2024-04-18 19:30:00,6,St Kilda,Western Bulldogs,64,124,Docklands,Western Bulldogs,100,-60
+35747,2024-04-19 19:40:00,6,Adelaide,Essendon,75,78,Adelaide Oval,Essendon,100,-3
+35748,2024-04-20 13:45:00,6,Collingwood,Port Adelaide,123,81,M.C.G.,Collingwood,100,42
+35749,2024-04-20 16:35:00,6,Carlton,Greater Western Sydney,117,98,Docklands,Carlton,100,19
+35750,2024-04-20 19:30:00,6,Brisbane Lions,Geelong,37,63,Gabba,Geelong,100,-26
+35751,2024-04-20 20:10:00,6,West Coast,Fremantle,105,68,Perth Stadium,West Coast,100,37
+35752,2024-04-21 13:05:00,6,Sydney,Gold Coast,110,57,S.C.G.,Sydney,100,53
+35753,2024-04-21 16:05:00,6,North Melbourne,Hawthorn,68,113,Docklands,Hawthorn,100,-45
+35754,2024-04-24 19:25:00,7,Richmond,Melbourne,42,85,M.C.G.,Melbourne,100,-43
+35755,2024-04-25 15:20:00,7,Essendon,Collingwood,85,85,M.C.G.,,100,0
+35756,2024-04-25 19:35:00,7,Greater Western Sydney,Brisbane Lions,113,59,Manuka Oval,Greater Western Sydney,100,54
+35757,2024-04-26 19:40:00,7,Port Adelaide,St Kilda,82,72,Adelaide Oval,Port Adelaide,100,10
+35758,2024-04-27 13:45:00,7,North Melbourne,Adelaide,81,138,Bellerive Oval,Adelaide,100,-57
+35759,2024-04-27 16:35:00,7,Geelong,Carlton,118,105,M.C.G.,Geelong,100,13
+35760,2024-04-27 19:40:00,7,Fremantle,Western Bulldogs,95,71,Perth Stadium,Fremantle,100,24
+35761,2024-04-28 13:00:00,7,Gold Coast,West Coast,112,75,Carrara,Gold Coast,100,37
+35762,2024-04-28 16:00:00,7,Hawthorn,Sydney,42,118,M.C.G.,Sydney,100,-76
+35763,2024-05-02 19:30:00,8,Adelaide,Port Adelaide,78,48,Adelaide Oval,Adelaide,100,30
+35764,2024-05-03 19:40:00,8,Carlton,Collingwood,79,85,M.C.G.,Collingwood,100,-6
+35765,2024-05-04 13:45:00,8,Sydney,Greater Western Sydney,98,69,S.C.G.,Sydney,100,29
+35766,2024-05-04 16:35:00,8,St Kilda,North Melbourne,103,65,Docklands,St Kilda,100,38
+35767,2024-05-04 19:30:00,8,Melbourne,Geelong,74,66,M.C.G.,Melbourne,100,8
+35768,2024-05-04 20:10:00,8,West Coast,Essendon,71,77,Perth Stadium,Essendon,100,-6
+35769,2024-05-05 13:00:00,8,Richmond,Fremantle,49,103,M.C.G.,Fremantle,100,-54
+35770,2024-05-05 16:00:00,8,Western Bulldogs,Hawthorn,91,98,Docklands,Hawthorn,100,-7
+35771,2024-05-05 19:10:00,8,Brisbane Lions,Gold Coast,79,45,Gabba,Brisbane Lions,100,34
+35772,2024-05-09 19:30:00,9,Carlton,Melbourne,77,76,M.C.G.,Carlton,100,1
+35773,2024-05-10 19:10:00,9,Geelong,Port Adelaide,95,101,Kardinia Park,Port Adelaide,100,-6
+35774,2024-05-10 20:30:00,9,Fremantle,Sydney,39,87,Perth Stadium,Sydney,100,-48
+35775,2024-05-11 13:45:00,9,Hawthorn,St Kilda,58,53,York Park,Hawthorn,100,5
+35776,2024-05-11 16:35:00,9,Essendon,Greater Western Sydney,82,62,Docklands,Essendon,100,20
+35778,2024-05-11 19:30:00,9,Gold Coast,North Melbourne,120,52,Marrara Oval,Gold Coast,100,68
+35777,2024-05-11 19:30:00,9,Richmond,Western Bulldogs,42,133,M.C.G.,Western Bulldogs,100,-91
+35779,2024-05-12 13:00:00,9,Collingwood,West Coast,103,37,Docklands,Collingwood,100,66
+35780,2024-05-12 16:00:00,9,Adelaide,Brisbane Lions,90,90,Adelaide Oval,,100,0
+35781,2024-05-16 19:30:00,10,Gold Coast,Geelong,164,100,Marrara Oval,Gold Coast,100,64
+35782,2024-05-17 19:40:00,10,Sydney,Carlton,117,65,S.C.G.,Sydney,100,52
+35783,2024-05-18 13:45:00,10,Collingwood,Adelaide,78,74,M.C.G.,Collingwood,100,4
+35784,2024-05-18 16:35:00,10,Greater Western Sydney,Western Bulldogs,43,70,Sydney Showground,Western Bulldogs,100,-27
+35786,2024-05-18 19:30:00,10,Brisbane Lions,Richmond,163,44,Gabba,Brisbane Lions,100,119
+35785,2024-05-18 19:30:00,10,St Kilda,Fremantle,55,72,Docklands,Fremantle,100,-17
+35787,2024-05-19 13:10:00,10,Essendon,North Melbourne,106,66,Docklands,Essendon,100,40
+35788,2024-05-19 15:20:00,10,Port Adelaide,Hawthorn,80,79,Adelaide Oval,Port Adelaide,100,1
+35789,2024-05-19 18:20:00,10,West Coast,Melbourne,105,70,Perth Stadium,West Coast,100,35
+35790,2024-05-23 19:30:00,11,Western Bulldogs,Sydney,88,102,Docklands,Sydney,100,-14
+35791,2024-05-24 20:10:00,11,Fremantle,Collingwood,75,75,Perth Stadium,,100,0
+35793,2024-05-25 13:45:00,11,Carlton,Gold Coast,102,73,Docklands,Carlton,100,29
+35792,2024-05-25 13:45:00,11,North Melbourne,Port Adelaide,48,107,Bellerive Oval,Port Adelaide,100,-59
+35794,2024-05-25 16:35:00,11,Geelong,Greater Western Sydney,74,78,Kardinia Park,Greater Western Sydney,100,-4
+35795,2024-05-25 19:40:00,11,Richmond,Essendon,74,86,M.C.G.,Essendon,100,-12
+35796,2024-05-26 13:10:00,11,Hawthorn,Brisbane Lions,100,75,Docklands,Hawthorn,100,25
+35797,2024-05-26 15:20:00,11,Melbourne,St Kilda,100,62,M.C.G.,Melbourne,100,38
+35798,2024-05-26 16:40:00,11,Adelaide,West Coast,137,38,Adelaide Oval,Adelaide,100,99
+35799,2024-05-30 19:30:00,12,Port Adelaide,Carlton,71,107,Adelaide Oval,Carlton,100,-36
+35800,2024-05-31 19:40:00,12,Collingwood,Western Bulldogs,82,100,Docklands,Western Bulldogs,100,-18
+35801,2024-06-01 13:45:00,12,Hawthorn,Adelaide,107,80,M.C.G.,Hawthorn,100,27
+35802,2024-06-01 16:35:00,12,West Coast,St Kilda,68,82,Perth Stadium,St Kilda,100,-14
+35803,2024-06-01 19:30:00,12,Geelong,Richmond,99,69,Kardinia Park,Geelong,100,30
+35804,2024-06-02 13:00:00,12,Melbourne,Fremantle,49,141,Traeger Park,Fremantle,100,-92
+35805,2024-06-02 16:00:00,12,Gold Coast,Essendon,91,80,Carrara,Gold Coast,100,11
+35806,2024-06-06 19:30:00,13,Adelaide,Richmond,71,79,Adelaide Oval,Richmond,100,-8
+35807,2024-06-07 19:40:00,13,Western Bulldogs,Brisbane Lions,71,114,Docklands,Brisbane Lions,100,-43
+35808,2024-06-08 13:45:00,13,Hawthorn,Greater Western Sydney,85,79,York Park,Hawthorn,100,6
+35809,2024-06-08 16:35:00,13,West Coast,North Melbourne,65,74,Perth Stadium,North Melbourne,100,-9
+35810,2024-06-08 19:30:00,13,St Kilda,Gold Coast,51,48,Docklands,St Kilda,100,3
+35811,2024-06-09 15:20:00,13,Sydney,Geelong,112,82,S.C.G.,Sydney,100,30
+35812,2024-06-09 19:20:00,13,Essendon,Carlton,70,96,M.C.G.,Carlton,100,-26
+35813,2024-06-10 15:20:00,13,Collingwood,Melbourne,89,51,M.C.G.,Collingwood,100,38
+35814,2024-06-14 19:40:00,14,Brisbane Lions,St Kilda,126,106,Gabba,Brisbane Lions,100,20
+35815,2024-06-15 13:45:00,14,Western Bulldogs,Fremantle,149,82,Docklands,Western Bulldogs,100,67
+35816,2024-06-15 16:35:00,14,Richmond,Hawthorn,49,97,M.C.G.,Hawthorn,100,-48
+35817,2024-06-15 19:30:00,14,Adelaide,Sydney,67,109,Adelaide Oval,Sydney,100,-42
+35818,2024-06-16 13:00:00,14,North Melbourne,Collingwood,118,119,Docklands,Collingwood,100,-1
+35819,2024-06-16 16:00:00,14,Greater Western Sydney,Port Adelaide,73,51,Sydney Showground,Greater Western Sydney,100,22
+35820,2024-06-21 19:40:00,15,Carlton,Geelong,138,75,M.C.G.,Carlton,100,63
+35821,2024-06-22 13:45:00,15,Port Adelaide,Brisbane Lions,73,152,Adelaide Oval,Brisbane Lions,100,-79
+35822,2024-06-22 16:35:00,15,Greater Western Sydney,Sydney,75,102,Sydney Showground,Sydney,100,-27
+35823,2024-06-22 19:30:00,15,Melbourne,North Melbourne,70,67,M.C.G.,Melbourne,100,3
+35824,2024-06-23 13:00:00,15,Essendon,West Coast,122,92,Docklands,Essendon,100,30
+35825,2024-06-23 16:00:00,15,Fremantle,Gold Coast,85,65,Perth Stadium,Fremantle,100,20
+35826,2024-06-28 19:40:00,16,Brisbane Lions,Melbourne,86,81,Gabba,Brisbane Lions,100,5
+35829,2024-06-29 13:45:00,16,North Melbourne,Western Bulldogs,60,77,Docklands,Western Bulldogs,100,-17
+35832,2024-06-29 13:45:00,16,Sydney,Fremantle,98,99,S.C.G.,Fremantle,100,-1
+35828,2024-06-29 16:35:00,16,Gold Coast,Collingwood,101,90,Carrara,Gold Coast,100,11
+35833,2024-06-29 19:30:00,16,Adelaide,Greater Western Sydney,94,78,Adelaide Oval,Adelaide,100,16
+35827,2024-06-29 19:30:00,16,Geelong,Essendon,105,60,M.C.G.,Geelong,100,45
+35831,2024-06-30 13:10:00,16,St Kilda,Port Adelaide,60,62,Docklands,Port Adelaide,100,-2
+35830,2024-06-30 15:20:00,16,Richmond,Carlton,70,131,M.C.G.,Carlton,100,-61
+35834,2024-06-30 16:40:00,16,West Coast,Hawthorn,33,94,Perth Stadium,Hawthorn,100,-61
+35836,2024-07-05 19:40:00,17,Collingwood,Essendon,80,92,M.C.G.,Essendon,100,-12
+35840,2024-07-06 13:45:00,17,North Melbourne,Gold Coast,87,83,Docklands,North Melbourne,100,4
+35842,2024-07-06 13:45:00,17,Port Adelaide,Western Bulldogs,102,54,Adelaide Oval,Port Adelaide,100,48
+35837,2024-07-06 16:35:00,17,Geelong,Hawthorn,110,59,Kardinia Park,Geelong,100,51
+35838,2024-07-06 19:30:00,17,Greater Western Sydney,Carlton,116,104,Sydney Showground,Greater Western Sydney,100,12
+35843,2024-07-06 20:10:00,17,Fremantle,Richmond,105,54,Perth Stadium,Fremantle,100,51
+35839,2024-07-07 13:10:00,17,Melbourne,West Coast,112,58,M.C.G.,Melbourne,100,54
+35841,2024-07-07 15:20:00,17,St Kilda,Sydney,84,82,Docklands,St Kilda,100,2
+35835,2024-07-07 16:10:00,17,Brisbane Lions,Adelaide,97,86,Gabba,Brisbane Lions,100,11
+35844,2024-07-12 19:40:00,18,Collingwood,Geelong,71,91,M.C.G.,Geelong,100,-20
+35846,2024-07-13 13:45:00,18,Hawthorn,Fremantle,87,74,York Park,Hawthorn,100,13
+35849,2024-07-13 13:45:00,18,Sydney,North Melbourne,138,59,S.C.G.,Sydney,100,79
+35850,2024-07-13 16:35:00,18,Western Bulldogs,Carlton,100,86,Docklands,Western Bulldogs,100,14
+35851,2024-07-13 19:30:00,18,Adelaide,St Kilda,71,39,Adelaide Oval,Adelaide,100,32
+35847,2024-07-13 19:30:00,18,Melbourne,Essendon,84,67,M.C.G.,Melbourne,100,17
+35845,2024-07-14 13:10:00,18,Gold Coast,Port Adelaide,96,82,Carrara,Gold Coast,100,14
+35848,2024-07-14 15:20:00,18,Richmond,Greater Western Sydney,84,108,M.C.G.,Greater Western Sydney,100,-24
+35852,2024-07-14 16:40:00,18,West Coast,Brisbane Lions,93,106,Perth Stadium,Brisbane Lions,100,-13
+35855,2024-07-19 19:40:00,19,Essendon,Adelaide,113,115,Docklands,Adelaide,100,-2
+35857,2024-07-20 13:45:00,19,Greater Western Sydney,Gold Coast,89,50,Sydney Showground,Greater Western Sydney,100,39
+35859,2024-07-20 13:45:00,19,St Kilda,West Coast,113,41,Docklands,St Kilda,100,72
+35858,2024-07-20 16:35:00,19,Hawthorn,Collingwood,133,67,M.C.G.,Hawthorn,100,66
+35856,2024-07-20 19:30:00,19,Geelong,Western Bulldogs,48,95,Kardinia Park,Western Bulldogs,100,-47
+35860,2024-07-20 19:30:00,19,Port Adelaide,Richmond,116,75,Adelaide Oval,Port Adelaide,100,41
+35853,2024-07-21 13:10:00,19,Brisbane Lions,Sydney,79,77,Gabba,Brisbane Lions,100,2
+35861,2024-07-21 15:20:00,19,Fremantle,Melbourne,116,66,Perth Stadium,Fremantle,100,50
+35854,2024-07-21 16:40:00,19,Carlton,North Melbourne,107,88,Docklands,Carlton,100,19
+35862,2024-07-26 19:40:00,20,Carlton,Port Adelaide,65,79,Docklands,Port Adelaide,100,-14
+35866,2024-07-27 13:45:00,20,North Melbourne,Geelong,66,106,Bellerive Oval,Geelong,100,-40
+35864,2024-07-27 16:35:00,20,Gold Coast,Brisbane Lions,65,93,Carrara,Brisbane Lions,100,-28
+35867,2024-07-27 16:35:00,20,St Kilda,Essendon,108,55,Docklands,St Kilda,100,53
+35865,2024-07-27 19:30:00,20,Melbourne,Greater Western Sydney,83,85,M.C.G.,Greater Western Sydney,100,-2
+35870,2024-07-27 20:10:00,20,Fremantle,West Coast,110,75,Perth Stadium,Fremantle,100,35
+35863,2024-07-28 13:10:00,20,Collingwood,Richmond,93,67,M.C.G.,Collingwood,100,26
+35868,2024-07-28 15:20:00,20,Sydney,Western Bulldogs,48,87,S.C.G.,Western Bulldogs,100,-39
+35869,2024-07-28 16:10:00,20,Adelaide,Hawthorn,58,124,Adelaide Oval,Hawthorn,100,-66
+35877,2024-08-02 19:15:00,21,Western Bulldogs,Melbourne,110,59,Docklands,Western Bulldogs,100,51
+35879,2024-08-02 20:30:00,21,West Coast,Gold Coast,97,87,Perth Stadium,West Coast,100,10
+35875,2024-08-03 13:45:00,21,North Melbourne,Richmond,90,77,Docklands,North Melbourne,100,13
+35873,2024-08-03 16:35:00,21,Geelong,Adelaide,90,85,Kardinia Park,Geelong,100,5
+35871,2024-08-03 19:30:00,21,Collingwood,Carlton,84,81,M.C.G.,Collingwood,100,3
+35878,2024-08-03 19:30:00,21,Port Adelaide,Sydney,148,36,Adelaide Oval,Port Adelaide,100,112
+35874,2024-08-04 13:10:00,21,Greater Western Sydney,Hawthorn,84,82,Manuka Oval,Greater Western Sydney,100,2
+35872,2024-08-04 15:20:00,21,Essendon,Fremantle,90,89,M.C.G.,Essendon,100,1
+35876,2024-08-04 16:40:00,21,St Kilda,Brisbane Lions,39,124,Docklands,Brisbane Lions,100,-85
+35886,2024-08-09 19:40:00,22,Sydney,Collingwood,89,86,S.C.G.,Sydney,100,3
+35880,2024-08-10 13:45:00,22,Brisbane Lions,Greater Western Sydney,64,82,Gabba,Greater Western Sydney,100,-18
+35884,2024-08-10 13:45:00,22,North Melbourne,West Coast,97,102,Bellerive Oval,West Coast,100,-5
+35888,2024-08-10 16:35:00,22,Fremantle,Geelong,62,73,Perth Stadium,Geelong,100,-11
+35882,2024-08-10 19:30:00,22,Essendon,Gold Coast,86,87,Docklands,Gold Coast,100,-1
+35883,2024-08-10 19:30:00,22,Melbourne,Port Adelaide,51,53,M.C.G.,Port Adelaide,100,-2
+35881,2024-08-11 13:10:00,22,Carlton,Hawthorn,38,112,M.C.G.,Hawthorn,100,-74
+35885,2024-08-11 15:20:00,22,Richmond,St Kilda,51,99,Docklands,St Kilda,100,-48
+35887,2024-08-11 16:10:00,22,Adelaide,Western Bulldogs,111,72,Adelaide Oval,Adelaide,100,39
+35890,2024-08-16 19:40:00,23,Essendon,Sydney,59,98,Docklands,Sydney,100,-39
+35891,2024-08-17 13:45:00,23,Gold Coast,Melbourne,63,117,Carrara,Melbourne,100,-54
+35892,2024-08-17 13:45:00,23,Greater Western Sydney,Fremantle,101,92,Sydney Showground,Greater Western Sydney,100,9
+35889,2024-08-17 16:35:00,23,Collingwood,Brisbane Lions,79,78,M.C.G.,Collingwood,100,1
+35896,2024-08-17 19:30:00,23,Port Adelaide,Adelaide,80,58,Adelaide Oval,Port Adelaide,100,22
+35894,2024-08-17 19:30:00,23,St Kilda,Geelong,107,89,Docklands,St Kilda,100,18
+35895,2024-08-18 13:10:00,23,Western Bulldogs,North Melbourne,138,42,Docklands,Western Bulldogs,100,96
+35893,2024-08-18 15:20:00,23,Hawthorn,Richmond,131,68,M.C.G.,Hawthorn,100,63
+35897,2024-08-18 16:40:00,23,West Coast,Carlton,34,99,Perth Stadium,Carlton,100,-65
+35902,2024-08-23 19:40:00,24,Melbourne,Collingwood,57,103,M.C.G.,Collingwood,100,-46
+35900,2024-08-24 13:45:00,24,Geelong,West Coast,168,75,Kardinia Park,Geelong,100,93
+35903,2024-08-24 14:10:00,24,Richmond,Gold Coast,66,94,M.C.G.,Gold Coast,100,-28
+35901,2024-08-24 16:35:00,24,Hawthorn,North Melbourne,170,46,York Park,Hawthorn,100,124
+35898,2024-08-24 19:25:00,24,Brisbane Lions,Essendon,87,67,Gabba,Brisbane Lions,100,20
+35904,2024-08-24 19:40:00,24,Sydney,Adelaide,121,90,S.C.G.,Sydney,100,31
+35905,2024-08-25 12:30:00,24,Western Bulldogs,Greater Western Sydney,98,61,Eureka Stadium,Western Bulldogs,100,37
+35899,2024-08-25 15:20:00,24,Carlton,St Kilda,74,76,Docklands,St Kilda,100,-2
+35906,2024-08-25 18:10:00,24,Fremantle,Port Adelaide,67,87,Perth Stadium,Port Adelaide,100,-20
+35910,2024-09-05 19:40:00,25,Port Adelaide,Geelong,54,138,Adelaide Oval,Geelong,100,-84
+35908,2024-09-06 19:40:00,25,Western Bulldogs,Hawthorn,62,99,M.C.G.,Hawthorn,100,-37
+35909,2024-09-07 15:20:00,25,Sydney,Greater Western Sydney,88,82,S.C.G.,Sydney,100,6
+35907,2024-09-07 19:30:00,25,Brisbane Lions,Carlton,99,71,Gabba,Brisbane Lions,100,28
+35912,2024-09-13 19:40:00,26,Port Adelaide,Hawthorn,75,72,Adelaide Oval,Port Adelaide,100,3
+35911,2024-09-14 19:30:00,26,Greater Western Sydney,Brisbane Lions,100,105,Sydney Showground,Brisbane Lions,100,-5
+36462,2024-09-20 19:40:00,27,Sydney,Port Adelaide,95,59,S.C.G.,Sydney,100,36
+36463,2024-09-21 17:15:00,27,Geelong,Brisbane Lions,85,95,M.C.G.,Brisbane Lions,100,-10
+35915,2024-09-28 14:30:00,28,Sydney,Brisbane Lions,60,120,M.C.G.,Brisbane Lions,100,-60
+37091,2025-03-07 19:40:00,0,Sydney,Hawthorn,76,96,S.C.G.,Hawthorn,100,-20
+37093,2025-03-09 15:20:00,0,Greater Western Sydney,Collingwood,104,52,Sydney Showground,Greater Western Sydney,100,52
+37094,2025-03-13 19:30:00,1,Richmond,Carlton,82,69,M.C.G.,Richmond,100,13
+37095,2025-03-14 19:40:00,1,Hawthorn,Essendon,111,85,M.C.G.,Hawthorn,100,26
+37096,2025-03-15 13:20:00,1,Geelong,Fremantle,147,69,Kardinia Park,Geelong,100,78
+37097,2025-03-15 16:15:00,1,Sydney,Brisbane Lions,82,86,S.C.G.,Brisbane Lions,100,-4
+37099,2025-03-15 19:35:00,1,Collingwood,Port Adelaide,136,45,M.C.G.,Collingwood,100,91
+37098,2025-03-15 19:35:00,1,Western Bulldogs,North Melbourne,113,97,Docklands,Western Bulldogs,100,16
+37100,2025-03-16 12:35:00,1,Adelaide,St Kilda,135,72,Adelaide Oval,Adelaide,100,63
+37101,2025-03-16 15:20:00,1,Melbourne,Greater Western Sydney,74,77,M.C.G.,Greater Western Sydney,100,-3
+37102,2025-03-16 18:10:00,1,West Coast,Gold Coast,49,136,Perth Stadium,Gold Coast,100,-87
+37103,2025-03-20 19:30:00,2,Carlton,Hawthorn,60,80,M.C.G.,Hawthorn,100,-20
+37104,2025-03-21 19:40:00,2,Western Bulldogs,Collingwood,70,76,M.C.G.,Collingwood,100,-6
+37105,2025-03-22 13:20:00,2,Essendon,Adelaide,100,161,M.C.G.,Adelaide,100,-61
+37106,2025-03-22 16:15:00,2,Port Adelaide,Richmond,140,68,Adelaide Oval,Port Adelaide,100,72
+37107,2025-03-22 19:35:00,2,St Kilda,Geelong,98,91,Docklands,St Kilda,100,7
+37108,2025-03-23 13:10:00,2,Brisbane Lions,West Coast,94,75,Gabba,Brisbane Lions,100,19
+37109,2025-03-23 15:20:00,2,North Melbourne,Melbourne,125,66,Docklands,North Melbourne,100,59
+37110,2025-03-23 18:10:00,2,Fremantle,Sydney,65,68,Perth Stadium,Sydney,100,-3
+37111,2025-03-27 19:30:00,3,Essendon,Port Adelaide,72,60,Docklands,Essendon,100,12
+37112,2025-03-28 19:40:00,3,Carlton,Western Bulldogs,75,83,Docklands,Western Bulldogs,100,-8
+37113,2025-03-29 13:20:00,3,Melbourne,Gold Coast,62,120,M.C.G.,Gold Coast,100,-58
+37114,2025-03-29 16:15:00,3,St Kilda,Richmond,135,53,Docklands,St Kilda,100,82
+37090,2025-03-29 19:35:00,3,Brisbane Lions,Geelong,70,61,Gabba,Brisbane Lions,100,9
+37115,2025-03-29 19:35:00,3,Hawthorn,Greater Western Sydney,76,64,York Park,Hawthorn,100,12
+37116,2025-03-30 15:20:00,3,Adelaide,North Melbourne,114,78,Adelaide Oval,Adelaide,100,36
+37117,2025-03-30 18:10:00,3,West Coast,Fremantle,68,106,Perth Stadium,Fremantle,100,-38
+37118,2025-04-03 19:30:00,4,Collingwood,Carlton,63,46,M.C.G.,Collingwood,100,17
+37119,2025-04-04 19:40:00,4,Geelong,Melbourne,85,46,Kardinia Park,Geelong,100,39
+37120,2025-04-05 13:20:00,4,Gold Coast,Adelaide,91,90,Carrara,Gold Coast,100,1
+37121,2025-04-05 16:15:00,4,Richmond,Brisbane Lions,90,118,M.C.G.,Brisbane Lions,100,-28
+37122,2025-04-05 19:35:00,4,North Melbourne,Sydney,52,117,Docklands,Sydney,100,-65
+37123,2025-04-06 13:10:00,4,Greater Western Sydney,West Coast,132,51,Sydney Showground,Greater Western Sydney,100,81
+37124,2025-04-06 15:20:00,4,Port Adelaide,St Kilda,72,89,Adelaide Oval,St Kilda,100,-17
+37125,2025-04-06 17:10:00,4,Fremantle,Western Bulldogs,97,81,Perth Stadium,Fremantle,100,16
+37126,2025-04-10 19:40:00,5,Adelaide,Geelong,100,119,Adelaide Oval,Geelong,100,-19
+37127,2025-04-11 19:40:00,5,Collingwood,Sydney,109,78,Adelaide Oval,Collingwood,100,31
+37128,2025-04-12 12:35:00,5,North Melbourne,Gold Coast,89,141,Barossa Park,Gold Coast,100,-52
+37129,2025-04-12 13:20:00,5,Carlton,West Coast,121,50,Adelaide Oval,Carlton,100,71
+37130,2025-04-12 16:15:00,5,Western Bulldogs,Brisbane Lions,97,118,Norwood Oval,Brisbane Lions,100,-21
+37131,2025-04-12 19:35:00,5,Melbourne,Essendon,57,96,Adelaide Oval,Essendon,100,-39
+37132,2025-04-13 12:35:00,5,Richmond,Fremantle,47,108,Barossa Park,Fremantle,100,-61
+37133,2025-04-13 15:20:00,5,St Kilda,Greater Western Sydney,82,110,Norwood Oval,Greater Western Sydney,100,-28
+37134,2025-04-13 19:20:00,5,Port Adelaide,Hawthorn,121,91,Adelaide Oval,Port Adelaide,100,30
+37135,2025-04-17 19:30:00,6,Brisbane Lions,Collingwood,53,105,Gabba,Collingwood,100,-52
+37136,2025-04-18 15:20:00,6,North Melbourne,Carlton,71,153,Docklands,Carlton,100,-82
+37137,2025-04-18 18:10:00,6,West Coast,Essendon,75,77,Perth Stadium,Essendon,100,-2
+37138,2025-04-19 13:20:00,6,Melbourne,Fremantle,107,97,M.C.G.,Melbourne,100,10
+37139,2025-04-19 16:15:00,6,Adelaide,Greater Western Sydney,52,34,Adelaide Oval,Adelaide,100,18
+37140,2025-04-19 19:35:00,6,Richmond,Gold Coast,80,69,Docklands,Richmond,100,11
+37141,2025-04-20 15:20:00,6,Sydney,Port Adelaide,77,85,S.C.G.,Port Adelaide,100,-8
+37142,2025-04-20 19:20:00,6,Western Bulldogs,St Kilda,127,56,Docklands,Western Bulldogs,100,71
+37143,2025-04-21 15:20:00,6,Geelong,Hawthorn,86,79,M.C.G.,Geelong,100,7
+37144,2025-04-24 19:30:00,7,Melbourne,Richmond,83,63,M.C.G.,Melbourne,100,20
+37145,2025-04-25 15:20:00,7,Collingwood,Essendon,107,66,M.C.G.,Collingwood,100,41
+37146,2025-04-25 20:10:00,7,Fremantle,Adelaide,85,67,Perth Stadium,Fremantle,100,18
+37147,2025-04-26 13:20:00,7,St Kilda,Brisbane Lions,73,118,Docklands,Brisbane Lions,100,-45
+37148,2025-04-26 16:15:00,7,Port Adelaide,North Melbourne,97,88,Adelaide Oval,Port Adelaide,100,9
+37149,2025-04-26 19:35:00,7,Greater Western Sydney,Western Bulldogs,81,113,Manuka Oval,Western Bulldogs,100,-32
+37150,2025-04-27 13:15:00,7,Gold Coast,Sydney,117,79,Carrara,Gold Coast,100,38
+37151,2025-04-27 15:20:00,7,Carlton,Geelong,94,76,M.C.G.,Carlton,100,18
+37152,2025-04-27 16:45:00,7,Hawthorn,West Coast,124,74,Docklands,Hawthorn,100,50
+37153,2025-05-01 19:30:00,8,Essendon,North Melbourne,65,62,Docklands,Essendon,100,3
+37154,2025-05-02 19:40:00,8,St Kilda,Fremantle,94,33,Docklands,St Kilda,100,61
+37155,2025-05-03 13:20:00,8,Western Bulldogs,Port Adelaide,131,41,Eureka Stadium,Western Bulldogs,100,90
+37156,2025-05-03 16:15:00,8,Adelaide,Carlton,110,50,Adelaide Oval,Adelaide,100,60
+37157,2025-05-03 19:35:00,8,Collingwood,Geelong,87,90,M.C.G.,Geelong,100,-3
+37158,2025-05-03 19:35:00,8,West Coast,Melbourne,76,108,Perth Stadium,Melbourne,100,-32
+37159,2025-05-04 13:10:00,8,Sydney,Greater Western Sydney,87,73,S.C.G.,Sydney,100,14
+37160,2025-05-04 15:20:00,8,Hawthorn,Richmond,109,44,M.C.G.,Hawthorn,100,65
+37161,2025-05-04 19:20:00,8,Brisbane Lions,Gold Coast,66,49,Gabba,Brisbane Lions,100,17
+37162,2025-05-08 20:10:00,9,Fremantle,Collingwood,83,97,Perth Stadium,Collingwood,100,-14
+37163,2025-05-09 19:40:00,9,St Kilda,Carlton,62,77,M.C.G.,Carlton,100,-15
+37164,2025-05-10 13:20:00,9,Melbourne,Hawthorn,56,91,M.C.G.,Hawthorn,100,-35
+37165,2025-05-10 16:15:00,9,Essendon,Sydney,71,63,Docklands,Essendon,100,8
+37166,2025-05-10 19:35:00,9,Gold Coast,Western Bulldogs,106,96,Marrara Oval,Gold Coast,100,10
+37167,2025-05-10 20:10:00,9,Port Adelaide,Adelaide,84,89,Adelaide Oval,Adelaide,100,-5
+37168,2025-05-11 13:10:00,9,Richmond,West Coast,81,79,M.C.G.,Richmond,100,2
+37169,2025-05-11 15:20:00,9,Geelong,Greater Western Sydney,101,105,Kardinia Park,Greater Western Sydney,100,-4
+37170,2025-05-11 16:40:00,9,North Melbourne,Brisbane Lions,71,71,Bellerive Oval,,100,0
+37171,2025-05-15 19:30:00,10,Gold Coast,Hawthorn,104,96,Marrara Oval,Gold Coast,100,8
+37172,2025-05-16 19:40:00,10,Sydney,Carlton,78,62,S.C.G.,Sydney,100,16
+37173,2025-05-17 13:20:00,10,Collingwood,Adelaide,78,68,M.C.G.,Collingwood,100,10
+37175,2025-05-17 16:15:00,10,Greater Western Sydney,Fremantle,61,95,Sydney Showground,Fremantle,100,-34
+37174,2025-05-17 16:15:00,10,Port Adelaide,Geelong,39,115,Adelaide Oval,Geelong,100,-76
+37176,2025-05-17 19:35:00,10,Western Bulldogs,Essendon,127,36,Docklands,Western Bulldogs,100,91
+37177,2025-05-18 13:10:00,10,Richmond,North Melbourne,74,78,M.C.G.,North Melbourne,100,-4
+37178,2025-05-18 15:20:00,10,Brisbane Lions,Melbourne,88,99,Gabba,Melbourne,100,-11
+37179,2025-05-18 16:40:00,10,West Coast,St Kilda,108,80,Perth Stadium,West Coast,100,28
+37180,2025-05-22 19:30:00,11,Geelong,Western Bulldogs,127,113,Kardinia Park,Geelong,100,14
+37181,2025-05-23 19:40:00,11,Essendon,Richmond,81,58,M.C.G.,Essendon,100,23
+37182,2025-05-24 12:35:00,11,Carlton,Greater Western Sydney,82,110,Docklands,Greater Western Sydney,100,-28
+37183,2025-05-24 16:15:00,11,Hawthorn,Brisbane Lions,60,93,M.C.G.,Brisbane Lions,100,-33
+37184,2025-05-24 19:35:00,11,North Melbourne,Collingwood,63,108,Docklands,Collingwood,100,-45
+37185,2025-05-24 20:10:00,11,Fremantle,Port Adelaide,100,51,Perth Stadium,Fremantle,100,49
+37186,2025-05-25 13:10:00,11,Adelaide,West Coast,128,62,Adelaide Oval,Adelaide,100,66
+37187,2025-05-25 15:20:00,11,Melbourne,Sydney,131,78,M.C.G.,Melbourne,100,53
+37188,2025-05-25 16:40:00,11,St Kilda,Gold Coast,61,80,Docklands,Gold Coast,100,-19
+37189,2025-05-29 19:30:00,12,Brisbane Lions,Essendon,90,72,Gabba,Brisbane Lions,100,18
+37190,2025-05-30 19:40:00,12,Collingwood,Hawthorn,107,56,M.C.G.,Collingwood,100,51
+37191,2025-05-31 13:20:00,12,Gold Coast,Fremantle,64,75,Carrara,Fremantle,100,-11
+37192,2025-05-31 16:15:00,12,Greater Western Sydney,Richmond,80,77,Sydney Showground,Greater Western Sydney,100,3
+37193,2025-05-31 19:35:00,12,Sydney,Adelaide,41,131,S.C.G.,Adelaide,100,-90
+37194,2025-06-01 15:20:00,12,Melbourne,St Kilda,63,91,Traeger Park,St Kilda,100,-28
+37195,2025-06-01 19:20:00,12,West Coast,Geelong,73,116,Perth Stadium,Geelong,100,-43
+37196,2025-06-05 19:30:00,13,Western Bulldogs,Hawthorn,59,81,Docklands,Hawthorn,100,-22
+37197,2025-06-06 19:40:00,13,Adelaide,Brisbane Lions,68,63,Adelaide Oval,Adelaide,100,5
+37198,2025-06-07 13:20:00,13,Richmond,Sydney,36,80,M.C.G.,Sydney,100,-44
+37199,2025-06-07 16:15:00,13,Geelong,Gold Coast,61,37,Kardinia Park,Geelong,100,24
+37200,2025-06-07 19:35:00,13,Greater Western Sydney,Port Adelaide,50,66,Manuka Oval,Port Adelaide,100,-16
+37201,2025-06-08 15:20:00,13,North Melbourne,West Coast,62,52,Hands Oval,North Melbourne,100,10
+37202,2025-06-08 19:20:00,13,Carlton,Essendon,78,70,M.C.G.,Carlton,100,8
+37203,2025-06-09 15:20:00,13,Melbourne,Collingwood,71,72,M.C.G.,Collingwood,100,-1
+37204,2025-06-12 19:30:00,14,St Kilda,Western Bulldogs,60,132,Docklands,Western Bulldogs,100,-72
+37205,2025-06-13 19:40:00,14,Hawthorn,Adelaide,47,44,York Park,Hawthorn,100,3
+37206,2025-06-14 13:20:00,14,Brisbane Lions,Greater Western Sydney,96,107,Gabba,Greater Western Sydney,100,-11
+37207,2025-06-14 16:15:00,14,Essendon,Geelong,56,151,M.C.G.,Geelong,100,-95
+37208,2025-06-14 19:35:00,14,North Melbourne,Fremantle,67,73,Perth Stadium,Fremantle,100,-6
+37209,2025-06-15 15:20:00,14,Port Adelaide,Melbourne,93,68,Adelaide Oval,Port Adelaide,100,25
+37210,2025-06-15 18:10:00,14,West Coast,Carlton,52,86,Perth Stadium,Carlton,100,-34
+37211,2025-06-19 20:10:00,15,Fremantle,Essendon,104,63,Perth Stadium,Fremantle,100,41
+37212,2025-06-20 19:40:00,15,Geelong,Brisbane Lions,51,92,Kardinia Park,Brisbane Lions,100,-41
+37213,2025-06-21 13:20:00,15,Carlton,North Melbourne,73,84,M.C.G.,North Melbourne,100,-11
+37214,2025-06-21 16:15:00,15,Port Adelaide,Sydney,52,71,Adelaide Oval,Sydney,100,-19
+37215,2025-06-21 19:35:00,15,Collingwood,St Kilda,108,74,Docklands,Collingwood,100,34
+37216,2025-06-22 13:10:00,15,Greater Western Sydney,Gold Coast,106,99,Sydney Showground,Greater Western Sydney,100,7
+37217,2025-06-22 15:20:00,15,Western Bulldogs,Richmond,135,56,Docklands,Western Bulldogs,100,79
+37223,2025-06-26 19:30:00,16,Port Adelaide,Carlton,110,60,Adelaide Oval,Port Adelaide,100,50
+37221,2025-06-27 19:40:00,16,Sydney,Western Bulldogs,96,105,S.C.G.,Western Bulldogs,100,-9
+37220,2025-06-28 13:20:00,16,Gold Coast,Melbourne,104,85,Carrara,Gold Coast,100,19
+37222,2025-06-28 16:15:00,16,Hawthorn,North Melbourne,150,65,York Park,Hawthorn,100,85
+37218,2025-06-28 19:35:00,16,Collingwood,West Coast,88,59,Docklands,Collingwood,100,29
+37219,2025-06-29 15:15:00,16,Richmond,Adelaide,54,122,M.C.G.,Adelaide,100,-68
+37224,2025-06-29 17:10:00,16,Fremantle,St Kilda,81,69,Perth Stadium,Fremantle,100,12
+37227,2025-07-03 19:30:00,17,North Melbourne,Western Bulldogs,85,134,Docklands,Western Bulldogs,100,-49
+37229,2025-07-04 19:20:00,17,Carlton,Collingwood,59,115,M.C.G.,Collingwood,100,-56
+37233,2025-07-04 20:20:00,17,West Coast,Greater Western Sydney,52,111,Perth Stadium,Greater Western Sydney,100,-59
+37228,2025-07-05 12:35:00,17,Essendon,Gold Coast,74,115,Docklands,Gold Coast,100,-41
+37225,2025-07-05 16:15:00,17,Geelong,Richmond,124,52,Kardinia Park,Geelong,100,72
+37231,2025-07-05 19:35:00,17,Brisbane Lions,Port Adelaide,120,92,Gabba,Brisbane Lions,100,28
+37226,2025-07-05 19:40:00,17,St Kilda,Hawthorn,74,94,Docklands,Hawthorn,100,-20
+37230,2025-07-06 13:10:00,17,Sydney,Fremantle,94,83,S.C.G.,Sydney,100,11
+37232,2025-07-06 15:15:00,17,Adelaide,Melbourne,90,77,Adelaide Oval,Adelaide,100,13
+37237,2025-07-10 19:30:00,18,Carlton,Brisbane Lions,66,103,Docklands,Brisbane Lions,100,-37
+37240,2025-07-11 19:40:00,18,Gold Coast,Collingwood,69,63,Carrara,Gold Coast,100,6
+37235,2025-07-12 13:20:00,18,Western Bulldogs,Adelaide,98,109,Docklands,Adelaide,100,-11
+37234,2025-07-12 16:15:00,18,Greater Western Sydney,Geelong,111,85,Sydney Showground,Greater Western Sydney,100,26
+37239,2025-07-12 19:35:00,18,Richmond,Essendon,46,37,M.C.G.,Richmond,100,9
+37242,2025-07-12 20:10:00,18,Fremantle,Hawthorn,77,64,Perth Stadium,Fremantle,100,13
+37238,2025-07-13 13:10:00,18,Melbourne,North Melbourne,119,83,M.C.G.,Melbourne,100,36
+37236,2025-07-13 15:15:00,18,St Kilda,Sydney,87,92,Docklands,Sydney,100,-5
+37241,2025-07-13 16:40:00,18,Port Adelaide,West Coast,87,61,Adelaide Oval,Port Adelaide,100,26
+37244,2025-07-17 19:30:00,19,Essendon,Greater Western Sydney,56,104,Docklands,Greater Western Sydney,100,-48
+37248,2025-07-18 19:40:00,19,Brisbane Lions,Western Bulldogs,86,76,Gabba,Brisbane Lions,100,10
+37249,2025-07-19 13:20:00,19,Hawthorn,Port Adelaide,87,49,York Park,Hawthorn,100,38
+37247,2025-07-19 16:15:00,19,Sydney,North Melbourne,84,53,S.C.G.,Sydney,100,31
+37245,2025-07-19 19:35:00,19,Carlton,Melbourne,78,70,M.C.G.,Carlton,100,8
+37251,2025-07-19 20:10:00,19,West Coast,Richmond,56,105,Perth Stadium,Richmond,100,-49
+37243,2025-07-20 13:10:00,19,Geelong,St Kilda,113,82,Kardinia Park,Geelong,100,31
+37246,2025-07-20 15:15:00,19,Collingwood,Fremantle,78,79,M.C.G.,Fremantle,100,-1
+37250,2025-07-20 16:40:00,19,Adelaide,Gold Coast,107,46,Adelaide Oval,Adelaide,100,61
+37257,2025-07-24 19:30:00,20,Hawthorn,Carlton,85,61,M.C.G.,Hawthorn,100,24
+37255,2025-07-25 19:20:00,20,Essendon,Western Bulldogs,50,143,Docklands,Western Bulldogs,100,-93
+37252,2025-07-25 19:50:00,20,Greater Western Sydney,Sydney,102,58,Sydney Showground,Greater Western Sydney,100,44
+37258,2025-07-26 13:20:00,20,Gold Coast,Brisbane Lions,130,64,Carrara,Gold Coast,100,66
+37260,2025-07-26 16:15:00,20,Fremantle,West Coast,126,77,Perth Stadium,Fremantle,100,49
+37253,2025-07-26 19:35:00,20,North Melbourne,Geelong,49,150,Docklands,Geelong,100,-101
+37259,2025-07-26 20:10:00,20,Adelaide,Port Adelaide,133,35,Adelaide Oval,Adelaide,100,98
+37256,2025-07-27 14:10:00,20,Richmond,Collingwood,57,93,M.C.G.,Collingwood,100,-36
+37254,2025-07-27 15:15:00,20,St Kilda,Melbourne,96,90,Docklands,St Kilda,100,6
+37264,2025-07-31 19:30:00,21,Western Bulldogs,Greater Western Sydney,132,44,Docklands,Western Bulldogs,100,88
+37268,2025-08-01 19:40:00,21,Adelaide,Hawthorn,101,87,Adelaide Oval,Adelaide,100,14
+37263,2025-08-02 13:20:00,21,Melbourne,West Coast,139,56,Docklands,Melbourne,100,83
+37266,2025-08-02 16:10:00,21,Gold Coast,Richmond,107,23,Carrara,Gold Coast,100,84
+37267,2025-08-02 16:15:00,21,Sydney,Essendon,68,54,S.C.G.,Sydney,100,14
+37265,2025-08-02 19:35:00,21,Collingwood,Brisbane Lions,65,92,M.C.G.,Brisbane Lions,100,-27
+37262,2025-08-03 13:40:00,21,St Kilda,North Melbourne,78,69,Docklands,St Kilda,100,9
+37261,2025-08-03 15:15:00,21,Geelong,Port Adelaide,153,65,Kardinia Park,Geelong,100,88
+37269,2025-08-03 17:10:00,21,Fremantle,Carlton,94,67,Perth Stadium,Fremantle,100,27
+37275,2025-08-07 19:30:00,22,Hawthorn,Collingwood,110,46,M.C.G.,Hawthorn,100,64
+37270,2025-08-08 19:40:00,22,Geelong,Essendon,109,65,Kardinia Park,Geelong,100,44
+37273,2025-08-09 13:20:00,22,Richmond,St Kilda,52,56,M.C.G.,St Kilda,100,-4
+37276,2025-08-09 16:15:00,22,Brisbane Lions,Sydney,90,92,Gabba,Sydney,100,-2
+37272,2025-08-09 19:35:00,22,Carlton,Gold Coast,74,93,Docklands,Gold Coast,100,-19
+37277,2025-08-09 20:10:00,22,Port Adelaide,Fremantle,86,92,Adelaide Oval,Fremantle,100,-6
+37271,2025-08-10 13:40:00,22,Greater Western Sydney,North Melbourne,133,79,Manuka Oval,Greater Western Sydney,100,54
+37274,2025-08-10 15:15:00,22,Melbourne,Western Bulldogs,99,105,M.C.G.,Western Bulldogs,100,-6
+37278,2025-08-10 17:10:00,22,West Coast,Adelaide,78,87,Perth Stadium,Adelaide,100,-9
+37280,2025-08-15 19:20:00,23,Essendon,St Kilda,75,77,Docklands,St Kilda,100,-2
+37287,2025-08-15 20:20:00,23,Fremantle,Brisbane Lions,44,101,Perth Stadium,Brisbane Lions,100,-57
+37284,2025-08-16 12:35:00,23,Gold Coast,Greater Western Sydney,76,111,Carrara,Greater Western Sydney,100,-35
+37282,2025-08-16 13:20:00,23,Carlton,Port Adelaide,118,64,Docklands,Carlton,100,54
+37283,2025-08-16 16:15:00,23,Hawthorn,Melbourne,92,56,M.C.G.,Hawthorn,100,36
+37286,2025-08-16 19:35:00,23,Adelaide,Collingwood,59,56,Adelaide Oval,Adelaide,100,3
+37279,2025-08-17 13:10:00,23,North Melbourne,Richmond,135,87,Bellerive Oval,North Melbourne,100,48
+37285,2025-08-17 15:15:00,23,Sydney,Geelong,68,111,S.C.G.,Geelong,100,-43
+37281,2025-08-17 16:40:00,23,Western Bulldogs,West Coast,126,32,Docklands,Western Bulldogs,100,94
+37293,2025-08-21 19:30:00,24,Essendon,Carlton,56,90,M.C.G.,Carlton,100,-34
+37291,2025-08-22 19:10:00,24,Collingwood,Melbourne,82,76,M.C.G.,Collingwood,100,6
+37295,2025-08-22 20:10:00,24,Port Adelaide,Gold Coast,71,67,Adelaide Oval,Port Adelaide,100,4
+37289,2025-08-23 13:20:00,24,North Melbourne,Adelaide,100,113,Docklands,Adelaide,100,-13
+37292,2025-08-23 16:15:00,24,Richmond,Geelong,64,103,M.C.G.,Geelong,100,-39
+37296,2025-08-23 19:35:00,24,West Coast,Sydney,51,118,Perth Stadium,Sydney,100,-67
+37288,2025-08-24 12:20:00,24,Greater Western Sydney,St Kilda,104,93,Sydney Showground,Greater Western Sydney,100,11
+37290,2025-08-24 15:15:00,24,Western Bulldogs,Fremantle,97,112,Docklands,Fremantle,100,-15
+37294,2025-08-24 19:20:00,24,Brisbane Lions,Hawthorn,89,79,Gabba,Brisbane Lions,100,10
+37092,2025-08-27 19:20:00,24,Gold Coast,Essendon,153,58,Carrara,Gold Coast,100,95
+37317,2025-09-04 19:40:00,25,Adelaide,Collingwood,55,79,Adelaide Oval,Collingwood,100,-24
+37318,2025-09-05 19:40:00,25,Geelong,Brisbane Lions,112,74,M.C.G.,Geelong,100,38
+37315,2025-09-06 15:15:00,25,Greater Western Sydney,Hawthorn,88,107,Sydney Showground,Hawthorn,100,-19
+37316,2025-09-06 19:35:00,25,Fremantle,Gold Coast,79,80,Perth Stadium,Gold Coast,100,-1
+37319,2025-09-12 19:40:00,26,Adelaide,Hawthorn,67,101,Adelaide Oval,Hawthorn,100,-34
+37320,2025-09-13 19:35:00,26,Brisbane Lions,Gold Coast,100,47,Gabba,Brisbane Lions,100,53
+37862,2025-09-19 19:40:00,27,Geelong,Hawthorn,115,85,M.C.G.,Geelong,100,30
+37863,2025-09-20 17:15:00,27,Collingwood,Brisbane Lions,71,100,M.C.G.,Brisbane Lions,100,-29
+37323,2025-09-27 14:30:00,28,Geelong,Brisbane Lions,75,122,M.C.G.,Brisbane Lions,100,-47
