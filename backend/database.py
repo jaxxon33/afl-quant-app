@@ -8,10 +8,18 @@ load_dotenv() # Load variables from .env
 
 # Use the Supabase / PostgreSQL URL if provided in environment variables.
 # Fallback to local SQLite for local testing if no env variable is found.
-SQLALCHEMY_DATABASE_URL = os.getenv(
+db_url = os.getenv(
     "DATABASE_URL", 
     "sqlite:///./afl_betting.db"
 )
+
+# Render and Supabase often have IPv6 connection issues on port 5432.
+# We force the connection string to use the transaction pooler port 6543
+# which guarantees an IPv4 proxy connection if using Supabase.
+if "supabase.co:5432" in db_url:
+    db_url = db_url.replace(":5432", ":6543")
+
+SQLALCHEMY_DATABASE_URL = db_url
 
 # Connect args needed for SQLite, but shouldn't be used for Postgres
 if SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
