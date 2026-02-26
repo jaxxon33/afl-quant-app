@@ -1,0 +1,7 @@
+venv/
+.env
+__pycache__/
+*.pyc
+afl_betting.db
+*.sqlite
+*.sqlite3
