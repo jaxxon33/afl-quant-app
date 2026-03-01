@@ -171,3 +171,5 @@ def trigger_simulation(background_tasks: BackgroundTasks, db: Session = Depends(
     """Triggers the Monte Carlo simulation to find new lines"""
     background_tasks.add_task(simulate_new_data, db)
     return {"message": "Simulation started. Running millions of iterations in the background..."}
+
+# Trigger Render redeploy
