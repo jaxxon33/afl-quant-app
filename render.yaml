@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: afl-quant-app
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATABASE_URL
+        sync: false
+      - key: ODDS_API_KEY
+        sync: false
+      - key: ODDS_SPORT_KEY
+        value: aussierules_afl
+      - key: ODDS_REGIONS
+        value: au
+      - key: ODDS_MARKETS
+        value: h2h,spreads,totals
+      - key: ODDS_FORMAT
+        value: decimal
+      - key: MIN_EV_THRESHOLD
+        value: "5.0"
+      - key: SIMULATION_COUNT
+        value: "20000"
+      - key: FRONTEND_ORIGIN
+        value: https://jaxxon33.github.io

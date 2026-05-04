@@ -1,55 +1,46 @@
-# AFL +EV Betting Model - Full-Stack Implementation Plan
+# AFL +EV Betting Model - Implementation Plan
 
-This document outlines a concise, step-by-step plan to build the AFL betting model and full-stack web application described in `Jackson.md`.
+This document tracks the AFL betting model described in `Jackson.md`.
 
-## Phase 1: Data Infrastructure & Acquisition
-**1. Setup the Database**
-- Create a relational database (e.g., PostgreSQL) to handle complex relationships between teams, players, matches, venues, and odds.
-- Define schemas for historical data, live match data, player stats, and bookmaker odds.
+## Phase 1: AFL Data Infrastructure
 
-**2. Historical Data Pipeline (Last 3 Years)**
-- Build scrapers/API integrations to collect the last 3 years of AFL data.
-- **Data Points:** Match results, player stats, weather conditions, venue details, injury reports, and lineups.
-- Clean and normalize this data to form the foundation of your predictive model.
+- Store teams, venues, matches, bookmaker odds, model projections, and recommended bets.
+- Add licensed AFL historical data for the last three seasons.
+- Include weather, venue, home ground, injuries, lineups, team form, and player availability.
 
-## Phase 2: Predictive Modeling (The Engine)
-**3. Develop the Machine Learning Model**
-- Use Python (scikit-learn, XGBoost, or PyTorch) to train models on historical data.
-- **Features:** Home ground advantage, player availability (injuries/lineups), weather, venue performance, and team form.
-- Create sub-models for different markets: Head-to-Head, Line, Totals, and Player Props.
+## Phase 2: AFL Modeling
 
-**4. Build the Monte Carlo Simulation Engine**
-- Write an optimized simulation script (using Python/NumPy or C++) capable of running millions of game simulations.
-- Output predicted probabilities for every possible match outcome and player performance metric.
+- Build separate probability models for head-to-head, line, totals, and player props.
+- Backtest each model against historical market prices and closing lines.
+- Calibrate probabilities so reported edges are not overstated.
 
-## Phase 3: Live Data & Odds Integration (2026 Season)
-**5. Live 2026 Match Data Feed**
-- Set up automated tasks (e.g., using Celery & Redis) to fetch weekly injury reports, final lineups, and weather forecasts for upcoming matches.
+## Phase 3: Simulation
 
-**6. Bookmaker Odds Integration**
-- Integrate APIs or build web scrapers for major Australian bookies (Sportsbet, TAB, Ladbrokes, Betfair).
-- Standardize the odds data from different bookmakers into a single unified format.
+- Run large AFL-specific simulations from expected scores, margin variance, player availability, and weather.
+- Store auditable projection outputs for each market.
+- Expose projections through the API for the frontend.
 
-## Phase 4: Expected Value (+EV) Calculation
-**7. Build the EV Calculator**
-- Compare the model’s predicted probabilities against the bookmakers' implied probabilities.
-- Formula: `EV = (Probability of Winning * Potential Profit) - (Probability of Losing * Stake)`
-- Calculate and assign an EV percentage (e.g., +5%, +12%) for each market. Filter out any bets that are not mathematically profitable.
+## Phase 4: Odds Integration
 
-## Phase 5: The Full-Stack Web App
-**8. Backend API Setup**
-- Build a robust backend (Python FastAPI or Django) to serve data to the frontend.
-- Expose endpoints for: upcoming matches, recommended +EV bets, simulation results, and odds comparisons.
+- Use The Odds API AFL sport key `aussierules_afl` for featured markets.
+- Pull AU bookmaker prices from Sportsbet, TAB, Ladbrokes, Betfair, and other available books.
+- Add event-level player prop markets when the data plan supports them.
 
-**9. Frontend Dashboard**
-- Develop a responsive web application (React, Next.js, or Vue).
-- Create views for:
-  - **Match Dashboard:** Upcoming games with predicted outcomes.
-  - **+EV Feed:** A real-time updating list of profitable bets, color-coded by EV percentage.
-  - **Insights:** Detailed breakdowns of why a bet is +EV (e.g., highlighting a specific injury advantage).
+## Phase 5: Expected Value
 
-## Phase 6: Automation & Deployment
-**10. Cloud Infrastructure & Automation**
-- Deploy the application to the cloud (AWS, GCP, or Vercel/Heroku).
-- Set up a chron job/scheduler to continuously poll for odds changes and rerun simulations if a major lineup change or injury is announced.
-- Implement alerting (SMS/Email/Push) when a highly profitable +EV bet (+10% or more) appears, as odds lines move quickly.
+- Compare model probability to bookmaker implied probability.
+- Store EV only when the edge clears the configured threshold.
+- Track bookmaker, market, selection, decimal odds, model probability, implied probability, and timestamp.
+
+## Phase 6: Product
+
+- Dashboard: current AFL +EV feed and summary stats.
+- Match view: upcoming fixtures, model win probabilities, projected score, line, and total.
+- Settings: EV threshold, bankroll, and staking controls connected to backend config.
+
+## Phase 7: Deployment
+
+- Frontend: GitHub Pages under `https://jaxxon33.github.io/afl-quant-app/`.
+- Backend: Render or equivalent FastAPI host.
+- Database: managed PostgreSQL.
+- Worker: scheduled odds refresh and simulation jobs.

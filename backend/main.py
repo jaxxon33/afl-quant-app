@@ -1,12 +1,12 @@
-from fastapi import FastAPI, Depends, BackgroundTasks
+from fastapi import FastAPI, Depends, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import models
 import schemas
 from database import engine, SessionLocal
 import datetime
-import random
-import ml_engine
+import os
+import afl_engine
 import odds_api
 
 models.Base.metadata.create_all(bind=engine)
@@ -17,8 +17,9 @@ app = FastAPI(title="AFL +EV Betting Model")
 origins = [
     "http://localhost:5173", # Vite default
     "http://127.0.0.1:5173",
-    "*" # For ease in testing
 ]
+extra_origins = [origin.strip() for origin in os.getenv("FRONTEND_ORIGIN", "").split(",") if origin.strip()]
+origins.extend(extra_origins)
 
 app.add_middleware(
     CORSMiddleware,
@@ -35,52 +36,55 @@ def get_db():
     finally:
         db.close()
 
-# Seed Database
-def seed_database(db: Session):
-    if db.query(models.Match).count() == 0:
-        teams = ["Collingwood", "Richmond", "Brisbane Lions", "Carlton", "Geelong", "Essendon", "Melbourne", "Sydney"]
-        venues = ["MCG", "Gabba", "SCG", "Marvel Stadium", "Optus Stadium"]
-        bookmakers = ["Sportsbet", "TAB", "Ladbrokes", "BetFair"]
+MIN_EV_THRESHOLD = float(os.getenv("MIN_EV_THRESHOLD", "5.0"))
+SIMULATION_COUNT = int(os.getenv("SIMULATION_COUNT", "20000"))
 
-        for _ in range(5):
-            h_team, a_team = random.sample(teams, 2)
-            match = models.Match(
-                home_team=h_team,
-                away_team=a_team,
-                venue=random.choice(venues),
-                match_date=datetime.datetime.utcnow() + datetime.timedelta(days=random.randint(1, 7)),
-                status="upcoming"
-            )
-            db.add(match)
-            db.commit()
-            db.refresh(match)
-            
-            # Predict some bets for this match
-            for _ in range(random.randint(2, 5)):
-                bookmaker = random.choice(bookmakers)
-                bookmaker_odds = round(random.uniform(1.5, 4.0), 2)
-                # True probability derived randomly
-                model_probability = round(random.uniform(0.3, 0.8), 2)
-                implied_prob = 1 / bookmaker_odds
-                
-                ev = (model_probability * bookmaker_odds) - 1.0
-                ev_percentage = round(ev * 100, 2)
-                
-                is_value = ev_percentage > 5.0 # Value bet if > 5%
-                
-                if is_value:
-                    bet = models.Bet(
-                        match_id=match.id,
-                        market=random.choice(["H2H", "Line", "Total Goals", "Player Props"]),
-                        selection=random.choice([h_team, a_team, "Over 160.5", "Under 160.5", "Dustin Martin 2+ Goals"]),
-                        bookmaker_odds=bookmaker_odds,
-                        model_probability=model_probability,
-                        ev_percentage=ev_percentage,
-                        is_value_bet=is_value,
-                        bookmaker=bookmaker
-                    )
-                    db.add(bet)
+
+def reset_non_afl_data(db: Session):
+    stale_match = db.query(models.Match).filter(
+        (~models.Match.home_team.in_(afl_engine.list_afl_teams()))
+        | (~models.Match.away_team.in_(afl_engine.list_afl_teams()))
+    ).first()
+
+    if stale_match:
+        db.query(models.Bet).delete()
+        db.query(models.Match).delete()
         db.commit()
+
+
+def seed_database(db: Session):
+    reset_non_afl_data(db)
+    if db.query(models.Match).count() > 0:
+        return
+
+    live_odds = odds_api.fetch_live_odds()
+    sync_matches_from_odds(db, live_odds)
+
+
+def sync_matches_from_odds(db: Session, live_odds):
+    for event in odds_api.parse_events(live_odds):
+        match = db.query(models.Match).filter(
+            models.Match.home_team == event["home_team"],
+            models.Match.away_team == event["away_team"],
+            models.Match.status == "upcoming",
+        ).first()
+
+        if match:
+            match.venue = event["venue"]
+            match.match_date = _naive_utc(event["match_date"])
+            continue
+
+        db.add(
+            models.Match(
+                home_team=event["home_team"],
+                away_team=event["away_team"],
+                venue=event["venue"],
+                match_date=_naive_utc(event["match_date"]),
+                status="upcoming",
+            )
+        )
+
+    db.commit()
 
 @app.on_event("startup")
 async def startup_event():
@@ -90,11 +94,45 @@ async def startup_event():
 
 @app.get("/api/matches", response_model=list[schemas.Match])
 def get_matches(db: Session = Depends(get_db)):
-    return db.query(models.Match).all()
+    return db.query(models.Match).order_by(models.Match.match_date.asc()).all()
+
+
+@app.get("/api/matches/{match_id}/projection", response_model=schemas.MatchProjection)
+def get_match_projection(match_id: int, db: Session = Depends(get_db)):
+    match = db.query(models.Match).filter(models.Match.id == match_id).first()
+    if not match:
+        raise HTTPException(status_code=404, detail="Match not found")
+
+    projection = afl_engine.predict_match(match.home_team, match.away_team, match.venue)
+    return schemas.MatchProjection(
+        match_id=match.id,
+        home_team=match.home_team,
+        away_team=match.away_team,
+        venue=match.venue,
+        home_win_probability=round(projection["home_prob"], 3),
+        away_win_probability=round(projection["away_prob"], 3),
+        expected_home_score=round(projection["expected_home_score"], 1),
+        expected_away_score=round(projection["expected_away_score"], 1),
+        expected_margin=round(projection["expected_margin"], 1),
+        expected_total=round(projection["expected_total"], 1),
+    )
 
 @app.get("/api/bets/ev", response_model=list[schemas.Bet])
 def get_ev_bets(db: Session = Depends(get_db)):
-    return db.query(models.Bet).filter(models.Bet.is_value_bet == True).order_by(models.Bet.ev_percentage.desc()).all()
+    ev_bets = db.query(models.Bet, models.Match)\
+                .join(models.Match, models.Bet.match_id == models.Match.id)\
+                .filter(models.Bet.is_value_bet == True)\
+                .order_by(models.Bet.ev_percentage.desc()).all()
+    
+    out = []
+    for bet, match in ev_bets:
+        bet_data = bet.__dict__.copy()
+        bet_data["match_date"] = match.match_date
+        bet_data["home_team"] = match.home_team
+        bet_data["away_team"] = match.away_team
+        out.append(bet_data)
+        
+    return out
 
 @app.get("/api/stats", response_model=schemas.DashboardStats)
 def get_stats(db: Session = Depends(get_db)):
@@ -108,68 +146,135 @@ def get_stats(db: Session = Depends(get_db)):
         total_matches_upcoming=upcoming
     )
 
-def simulate_new_data(db: Session):
-    # Clear existing bets to prevent duplicates
-    db.query(models.Bet).delete()
-    db.commit()
+def simulate_new_data():
+    db = SessionLocal()
+    try:
+        db.query(models.Bet).delete()
+        db.commit()
 
-    # Retrieve mock odds (or real if API key set)
-    live_odds = odds_api.fetch_live_odds()
-    parsed_odds = odds_api.parse_odds(live_odds)
-    
-    # Process each live odd with our ML Engine instead of random data
-    for odd in parsed_odds:
-        h_team = odd['home_team']
-        a_team = odd['away_team']
-        
-        # Predict outcome based on historical XGBoost model
-        # Currently defaults to mock venue logic if venue unknown
-        prediction = ml_engine.predict_match(h_team, a_team, "MCG") 
-        
-        market = odd['market']
-        selection = odd['selection']
-        bookmaker_odds = odd['odds']
-        
-        # Assign model probability based on selection
-        # (Assuming it's a Head-to-Head win market for simplicity here)
-        if selection == h_team:
-            model_probability = prediction['home_prob']
-        elif selection == a_team:
-            model_probability = prediction['away_prob']
-        else:
-            model_probability = random.uniform(0.4, 0.6) # Uncategorized markets
-            
-        implied_prob = 1 / bookmaker_odds
-        
-        # Calculate +EV
-        ev = (model_probability * bookmaker_odds) - 1.0
-        ev_percentage = round(ev * 100, 2)
-        
-        is_value = ev_percentage > 5.0
-        
-        if is_value:
-            # Check if we have an active match for these teams
-            # Simplified: just grabbing first upcoming match for demo purposes
-            match = db.query(models.Match).filter(models.Match.status == "upcoming").first()
-            if match:
-                bet = models.Bet(
+        live_odds = odds_api.fetch_live_odds()
+        sync_matches_from_odds(db, live_odds)
+        parsed_odds = odds_api.parse_odds(live_odds)
+        mc_cache = {}
+
+        for odd in parsed_odds:
+            h_team = odd["home_team"]
+            a_team = odd["away_team"]
+            match_key = f"{h_team}_{a_team}"
+
+            if match_key not in mc_cache:
+                mc_cache[match_key] = afl_engine.run_monte_carlo_simulation(
+                    h_team,
+                    a_team,
+                    afl_engine.get_default_venue(h_team),
+                    num_simulations=SIMULATION_COUNT,
+                )
+
+            model_probability = _market_probability(odd, mc_cache[match_key])
+            if model_probability is None:
+                continue
+
+            bookmaker_odds = float(odd["odds"])
+            ev = afl_engine.calculate_ev(model_probability, bookmaker_odds)
+            if ev is None:
+                continue
+
+            ev_percentage = round(ev * 100, 2)
+            if ev_percentage <= MIN_EV_THRESHOLD:
+                continue
+
+            match = db.query(models.Match).filter(
+                models.Match.home_team == h_team,
+                models.Match.away_team == a_team,
+                models.Match.status == "upcoming",
+            ).first()
+            if not match:
+                continue
+
+            db.add(
+                models.Bet(
                     match_id=match.id,
-                    market=market,
-                    selection=selection,
+                    market=_format_market(odd["market"]),
+                    selection=_format_selection(odd),
                     bookmaker_odds=bookmaker_odds,
                     model_probability=round(model_probability, 3),
                     ev_percentage=ev_percentage,
-                    is_value_bet=is_value,
-                    bookmaker=odd['bookmaker']
+                    is_value_bet=True,
+                    bookmaker=odd["bookmaker"],
                 )
-                db.add(bet)
-                
-    db.commit()
+            )
+
+        db.commit()
+    finally:
+        db.close()
 
 @app.post("/api/run-simulation")
-def trigger_simulation(background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
-    """Triggers the Monte Carlo simulation to find new lines"""
-    background_tasks.add_task(simulate_new_data, db)
-    return {"message": "Simulation started. Running millions of iterations in the background..."}
+def trigger_simulation(background_tasks: BackgroundTasks):
+    background_tasks.add_task(simulate_new_data)
+    return {"message": f"AFL simulation queued with {SIMULATION_COUNT:,} iterations per match."}
 
-# Trigger Render redeploy
+
+def _market_probability(odd, mc):
+    market = odd["market"]
+    selection = odd["selection"]
+    point = odd.get("point")
+
+    if market == "h2h":
+        if selection == mc["home_team"]:
+            return mc["mc_home_prob"]
+        if selection == mc["away_team"]:
+            return mc["mc_away_prob"]
+        return None
+
+    if market == "totals":
+        if point is None:
+            return None
+        point_val = float(point)
+        over_prob = sum(1 for total in mc["total_points_list"] if total > point_val) / len(mc["total_points_list"])
+        if str(selection).lower() == "over":
+            return over_prob
+        if str(selection).lower() == "under":
+            return 1.0 - over_prob
+        return None
+
+    if market == "spreads":
+        if point is None:
+            return None
+        point_val = float(point)
+        if selection == mc["home_team"]:
+            cover_count = sum(1 for margin in mc["home_margins"] if margin + point_val > 0)
+        elif selection == mc["away_team"]:
+            cover_count = sum(1 for margin in mc["home_margins"] if -margin + point_val > 0)
+        else:
+            return None
+        return cover_count / len(mc["home_margins"])
+
+    return None
+
+
+def _format_market(market):
+    labels = {"h2h": "Head to Head", "spreads": "Line", "totals": "Total Points"}
+    return labels.get(market, market)
+
+
+def _format_selection(odd):
+    point = odd.get("point")
+    selection = odd["selection"]
+    if point is None:
+        return selection
+
+    if odd["market"] == "spreads":
+        point_value = float(point)
+        sign = "+" if point_value > 0 else ""
+        return f"{selection} {sign}{point_value:g}"
+
+    if odd["market"] == "totals":
+        return f"{selection} {float(point):g}"
+
+    return selection
+
+
+def _naive_utc(value):
+    if value.tzinfo:
+        return value.astimezone(datetime.timezone.utc).replace(tzinfo=None)
+    return value

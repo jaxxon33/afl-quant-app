@@ -27,6 +27,9 @@ class BetBase(BaseModel):
     ev_percentage: float
     is_value_bet: bool
     bookmaker: str
+    match_date: Optional[datetime.datetime] = None
+    home_team: Optional[str] = None
+    away_team: Optional[str] = None
 
 class BetCreate(BetBase):
     pass
@@ -41,3 +44,16 @@ class DashboardStats(BaseModel):
     total_ev_bets: int
     avg_ev_percentage: float
     total_matches_upcoming: int
+
+
+class MatchProjection(BaseModel):
+    match_id: int
+    home_team: str
+    away_team: str
+    venue: str
+    home_win_probability: float
+    away_win_probability: float
+    expected_home_score: float
+    expected_away_score: float
+    expected_margin: float
+    expected_total: float

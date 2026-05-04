@@ -36,7 +36,6 @@ export default function Dashboard() {
         setSimulating(true)
         try {
             await fetch(`${API_BASE}/run-simulation`, { method: 'POST' })
-            // Fake a loading state for UX
             setTimeout(() => {
                 fetchData()
                 setSimulating(false)
@@ -67,9 +66,9 @@ export default function Dashboard() {
         <div>
             <div className="header-actions">
                 <div>
-                    <h1>+EV Identification <span className="neon-green-text">Live Feed</span></h1>
+                    <h1>+EV Identification <span className="neon-cyan-text">Live Feed</span></h1>
                     <p style={{ color: "var(--text-secondary)", marginTop: "0.5rem" }}>
-                        Model tracking line movements across top Australian bookies.
+                        Model tracking AFL head-to-head, line, and totals prices across Australian bookies.
                     </p>
                 </div>
                 <button
@@ -80,7 +79,7 @@ export default function Dashboard() {
                     {simulating ? (
                         <><span className="spinner"></span> Running Monte Carlo...</>
                     ) : (
-                        '▶ Run Simulation Matrix'
+                            'Run AFL Simulation'
                     )}
                 </button>
             </div>
@@ -88,21 +87,21 @@ export default function Dashboard() {
             <div className="stats-grid">
                 <div className="glass-card">
                     <div className="stat-label">Identified Value Bets</div>
-                    <div className="stat-value neon-green-text">{stats.total_ev_bets}</div>
+                    <div className="stat-value neon-cyan-text">{stats.total_ev_bets}</div>
                 </div>
                 <div className="glass-card">
                     <div className="stat-label">Average +EV Yield</div>
                     <div className="stat-value gradient-text">+{stats.avg_ev_percentage}%</div>
                 </div>
                 <div className="glass-card">
-                    <div className="stat-label">Upcoming Matches</div>
+                    <div className="stat-label">Upcoming AFL Matches</div>
                     <div className="stat-value mono-text">{stats.total_matches_upcoming}</div>
                 </div>
             </div>
 
             <div className="glass-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: "1.5rem" }}>
-                    <h3>Sharps Action / Live +EV Bets</h3>
+                    <h3>Live AFL +EV Bets</h3>
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
@@ -129,6 +128,9 @@ export default function Dashboard() {
                         sortedBets.map((bet) => (
                             <div key={bet.id} className="ev-card">
                                 <div className="ev-match-info">
+                                    <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "4px" }}>
+                                        {bet.home_team} vs {bet.away_team} &middot; {new Date(bet.match_date?.split('.')[0]).toLocaleDateString()}
+                                    </div>
                                     <div className="ev-market">{bet.market}</div>
                                     <div className="ev-match-title">{bet.selection}</div>
                                     <div className="ev-selection">Model Prob: {(bet.model_probability * 100).toFixed(1)}% vs Implied: {((1 / bet.bookmaker_odds) * 100).toFixed(1)}%</div>

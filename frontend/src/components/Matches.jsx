@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts'
-import { Activity, TrendingUp, TrendingDown, Clock } from 'lucide-react'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { Activity, Clock, Target } from 'lucide-react'
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
 export default function Matches() {
     const [matches, setMatches] = useState([])
     const [selectedMatch, setSelectedMatch] = useState(null)
+    const [projection, setProjection] = useState(null)
+    const [projectionLoading, setProjectionLoading] = useState(false)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -27,34 +29,30 @@ export default function Matches() {
         fetchMatches()
     }, [])
 
-    // Generate some mock timeline data based on the selected match to show probability trends
-    const getTrendData = (match) => {
-        if (!match) return []
+    useEffect(() => {
+        if (!selectedMatch) return
 
-        let currentHomeProb = 50
-        let currentAwayProb = 50
-        const data = []
-
-        const daysAgo = 7
-        for (let i = daysAgo; i >= 0; i--) {
-            // Random walk probability simulation
-            currentHomeProb = currentHomeProb + (Math.random() * 10 - 5)
-            // Clamp
-            currentHomeProb = Math.max(10, Math.min(90, currentHomeProb))
-            currentAwayProb = 100 - currentHomeProb
-
-            data.push({
-                day: i === 0 ? 'Today' : `${i}d ago`,
-                [match.home_team]: Number(currentHomeProb.toFixed(1)),
-                [match.away_team]: Number(currentAwayProb.toFixed(1)),
-                homeOdds: Number((100 / currentHomeProb).toFixed(2)),
-                awayOdds: Number((100 / currentAwayProb).toFixed(2))
-            })
+        const fetchProjection = async () => {
+            setProjectionLoading(true)
+            try {
+                const res = await fetch(`${API_BASE}/matches/${selectedMatch.id}/projection`)
+                const data = await res.json()
+                setProjection(data)
+            } catch (e) {
+                console.error("Error fetching projection", e)
+                setProjection(null)
+            } finally {
+                setProjectionLoading(false)
+            }
         }
-        return data
-    }
 
-    const trendData = selectedMatch ? getTrendData(selectedMatch) : []
+        fetchProjection()
+    }, [selectedMatch])
+
+    const scoreData = projection ? [
+        { team: projection.home_team, score: projection.expected_home_score },
+        { team: projection.away_team, score: projection.expected_away_score }
+    ] : []
 
     if (loading) {
         return (
@@ -69,9 +67,9 @@ export default function Matches() {
         <div className="matches-page">
             <div className="header-actions" style={{ marginBottom: "2rem" }}>
                 <div>
-                    <h1>Matches <span className="neon-green-text">& Probs</span></h1>
+                    <h1>AFL Matches <span className="neon-cyan-text">& Projections</span></h1>
                     <p style={{ color: "var(--text-secondary)", marginTop: "0.5rem" }}>
-                        Historical probability trends and line movement charts.
+                        Upcoming fixtures with current model probabilities and expected scoring.
                     </p>
                 </div>
             </div>
@@ -95,7 +93,7 @@ export default function Matches() {
                                         <span className="vs">vs</span>
                                         <span className="team">{match.away_team}</span>
                                     </div>
-                                    <div className="match-venue">{match.venue}</div>
+                                    <div className="match-venue">{new Date(match.match_date?.split('.')[0]).toLocaleDateString()} &middot; {match.venue}</div>
                                 </div>
                             ))
                         )}
@@ -109,63 +107,65 @@ export default function Matches() {
                             <div className="glass-card" style={{ marginBottom: "1.5rem" }}>
                                 <h2>{selectedMatch.home_team} <span style={{ color: "var(--text-secondary)" }}>vs</span> {selectedMatch.away_team}</h2>
                                 <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-                                    Match Date: {new Date(selectedMatch.match_date).toLocaleDateString()} &middot; {selectedMatch.venue}
+                                    Match Date: {new Date(selectedMatch.match_date?.split('.')[0]).toLocaleDateString()} &middot; {selectedMatch.venue}
                                 </p>
 
                                 <h3 style={{ marginBottom: "1rem", display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <Activity size={20} className="neon-green-text" />
-                                    Model Implied Win Probability Trend
+                                    <Activity size={20} className="neon-cyan-text" />
+                                    Model Win Probability
                                 </h3>
-                                <div style={{ height: "300px", width: "100%" }}>
-                                    <ResponsiveContainer width="100%" height="100%">
-                                        <AreaChart data={trendData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                                            <defs>
-                                                <linearGradient id="colorHome" x1="0" y1="0" x2="0" y2="1">
-                                                    <stop offset="5%" stopColor="#00ff88" stopOpacity={0.3} />
-                                                    <stop offset="95%" stopColor="#00ff88" stopOpacity={0} />
-                                                </linearGradient>
-                                                <linearGradient id="colorAway" x1="0" y1="0" x2="0" y2="1">
-                                                    <stop offset="5%" stopColor="#8884d8" stopOpacity={0.3} />
-                                                    <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-                                                </linearGradient>
-                                            </defs>
-                                            <XAxis dataKey="day" stroke="var(--text-secondary)" />
-                                            <YAxis stroke="var(--text-secondary)" unit="%" />
-                                            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
-                                            <Tooltip
-                                                contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid #333', borderRadius: '8px' }}
-                                                itemStyle={{ color: '#fff' }}
-                                            />
-                                            <Legend />
-                                            <Area type="monotone" dataKey={selectedMatch.home_team} stroke="#00ff88" fillOpacity={1} fill="url(#colorHome)" />
-                                            <Area type="monotone" dataKey={selectedMatch.away_team} stroke="#8884d8" fillOpacity={1} fill="url(#colorAway)" />
-                                        </AreaChart>
-                                    </ResponsiveContainer>
-                                </div>
+                                {projectionLoading || !projection ? (
+                                    <p style={{ color: "var(--text-secondary)" }}>Loading projection...</p>
+                                ) : (
+                                    <div className="projection-grid">
+                                        <div className="projection-card">
+                                            <span>{projection.home_team}</span>
+                                            <strong>{(projection.home_win_probability * 100).toFixed(1)}%</strong>
+                                        </div>
+                                        <div className="projection-card">
+                                            <span>{projection.away_team}</span>
+                                            <strong>{(projection.away_win_probability * 100).toFixed(1)}%</strong>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             <div className="glass-card">
                                 <h3 style={{ marginBottom: "1rem", display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <TrendingUp size={20} style={{ color: "#8884d8" }} />
-                                    Bookmaker Odds Line Movement (H2H)
+                                    <Target size={20} style={{ color: "#8884d8" }} />
+                                    Expected Score
                                 </h3>
-                                <div style={{ height: "300px", width: "100%" }}>
-                                    <ResponsiveContainer width="100%" height="100%">
-                                        <LineChart data={trendData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                                            <XAxis dataKey="day" stroke="var(--text-secondary)" />
-                                            <YAxis stroke="var(--text-secondary)" domain={['dataMin - 0.5', 'dataMax + 0.5']} />
-                                            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
-                                            <Tooltip
-                                                contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid #333', borderRadius: '8px' }}
-                                                itemStyle={{ color: '#fff' }}
-                                                formatter={(value) => `$${value}`}
-                                            />
-                                            <Legend />
-                                            <Line type="monotone" name={`${selectedMatch.home_team} Odds`} dataKey="homeOdds" stroke="#00ff88" strokeWidth={2} dot={{ r: 4 }} activeDot={{ r: 6 }} />
-                                            <Line type="monotone" name={`${selectedMatch.away_team} Odds`} dataKey="awayOdds" stroke="#8884d8" strokeWidth={2} dot={{ r: 4 }} activeDot={{ r: 6 }} />
-                                        </LineChart>
-                                    </ResponsiveContainer>
-                                </div>
+                                {projectionLoading || !projection ? (
+                                    <p style={{ color: "var(--text-secondary)" }}>Loading score forecast...</p>
+                                ) : (
+                                    <>
+                                        <div className="score-summary">
+                                            <div>
+                                                <span>Projected Margin</span>
+                                                <strong>{projection.expected_margin > 0 ? '+' : ''}{projection.expected_margin.toFixed(1)}</strong>
+                                            </div>
+                                            <div>
+                                                <span>Projected Total</span>
+                                                <strong>{projection.expected_total.toFixed(1)}</strong>
+                                            </div>
+                                        </div>
+                                        <div style={{ height: "260px", width: "100%" }}>
+                                            <ResponsiveContainer width="100%" height="100%">
+                                                <BarChart data={scoreData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                                                    <XAxis dataKey="team" stroke="var(--text-secondary)" />
+                                                    <YAxis stroke="var(--text-secondary)" />
+                                                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+                                                    <Tooltip
+                                                        contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid #333', borderRadius: '8px' }}
+                                                        itemStyle={{ color: '#fff' }}
+                                                        formatter={(value) => value.toFixed(1)}
+                                                    />
+                                                    <Bar dataKey="score" fill="var(--accent-primary)" radius={[6, 6, 0, 0]} />
+                                                </BarChart>
+                                            </ResponsiveContainer>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </>
                     ) : (

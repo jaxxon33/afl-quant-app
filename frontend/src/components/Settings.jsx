@@ -21,7 +21,7 @@ export default function Settings() {
         <div className="settings-page">
             <div className="header-actions" style={{ marginBottom: "2rem" }}>
                 <div>
-                    <h1>Model <span className="neon-green-text">Configuration</span></h1>
+                    <h1>Model <span className="neon-cyan-text">Configuration</span></h1>
                     <p style={{ color: "var(--text-secondary)", marginTop: "0.5rem" }}>
                         Tune the algorithm's thresholds and your bankroll management strategy.
                     </p>
@@ -40,7 +40,7 @@ export default function Settings() {
                 {/* EV Threshold Setting */}
                 <div className="glass-card settings-card">
                     <div className="settings-card-header">
-                        <div className="settings-icon-wrapper"><Percent size={20} className="neon-green-text" /></div>
+                        <div className="settings-icon-wrapper"><Percent size={20} className="neon-cyan-text" /></div>
                         <div>
                             <h3>Minimum +EV Threshold</h3>
                             <p className="setting-desc">The algorithm will only flag bets with an Expected Value higher than this percentage.</p>
@@ -70,7 +70,7 @@ export default function Settings() {
                 {/* Bankroll Setting */}
                 <div className="glass-card settings-card">
                     <div className="settings-card-header">
-                        <div className="settings-icon-wrapper"><DollarSign size={20} className="neon-green-text" /></div>
+                        <div className="settings-icon-wrapper"><DollarSign size={20} className="neon-cyan-text" /></div>
                         <div>
                             <h3>Total Bankroll Sizing</h3>
                             <p className="setting-desc">Set your total allocated bankroll to calculate recommended stake sizes using the Kelly Criterion.</p>
@@ -127,9 +127,9 @@ export default function Settings() {
                         <div>
                             <h3>Risk Disclaimer</h3>
                             <p className="setting-desc" style={{ marginTop: '0.4rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                                The AFL quant model identifies edges based on historical data and real-time market lines. It does not guarantee profit.
+                                The AFL quant model identifies edges from team ratings, venue context, simulations, and live market lines. It does not guarantee profit.
                                 Always ensure you adhere to strict bankroll management and never wager more than your specified bankroll limit.
-                                In Australian markets, bookmakers may limit accounts that consistently beat the closing line.
+                                In US markets, bookmakers may limit accounts that consistently beat the closing line.
                             </p>
                         </div>
                     </div>
