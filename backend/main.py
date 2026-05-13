@@ -38,7 +38,8 @@ def get_db():
 
 MIN_EV_THRESHOLD = float(os.getenv("MIN_EV_THRESHOLD", "5.0"))
 SIMULATION_COUNT = int(os.getenv("SIMULATION_COUNT", "20000"))
-MAX_MARKET_EDGE = float(os.getenv("MAX_MARKET_EDGE", "0.08"))
+MAX_MARKET_EDGE = float(os.getenv("MAX_MARKET_EDGE", "0.05"))
+MAX_BOOK_EDGE = float(os.getenv("MAX_BOOK_EDGE", "0.015"))
 
 
 def reset_non_afl_data(db: Session):
@@ -156,7 +157,7 @@ def simulate_new_data():
         live_odds = odds_api.fetch_live_odds()
         sync_matches_from_odds(db, live_odds)
         parsed_odds = odds_api.parse_odds(live_odds)
-        market_consensus = _build_market_consensus(parsed_odds)
+        market_consensus, bookmaker_consensus = _build_market_consensus(parsed_odds)
         mc_cache = {}
 
         for odd in parsed_odds:
@@ -176,6 +177,7 @@ def simulate_new_data():
                 odd,
                 mc_cache[match_key],
                 market_consensus,
+                bookmaker_consensus,
             )
             if model_probability is None:
                 continue
@@ -278,6 +280,7 @@ def _build_market_consensus(parsed_odds):
         grouped.setdefault(key, []).append(odd)
 
     consensus_samples = {}
+    bookmaker_samples = {}
     for outcomes in grouped.values():
         implied_sum = sum(1.0 / float(outcome["odds"]) for outcome in outcomes if float(outcome["odds"]) > 1.0)
         if implied_sum <= 0:
@@ -287,12 +290,13 @@ def _build_market_consensus(parsed_odds):
             outcome_key = _consensus_key(outcome)
             fair_probability = (1.0 / float(outcome["odds"])) / implied_sum
             consensus_samples.setdefault(outcome_key, []).append(fair_probability)
+            bookmaker_samples[_bookmaker_consensus_key(outcome)] = fair_probability
 
     return {
         key: sum(values) / len(values)
         for key, values in consensus_samples.items()
         if values
-    }
+    }, bookmaker_samples
 
 
 def _consensus_key(odd):
@@ -311,7 +315,11 @@ def _consensus_key(odd):
     )
 
 
-def _market_probability(odd, mc, market_consensus=None):
+def _bookmaker_consensus_key(odd):
+    return (*_consensus_key(odd), odd["bookmaker"])
+
+
+def _market_probability(odd, mc, market_consensus=None, bookmaker_consensus=None):
     raw_probability = _raw_market_probability(odd, mc)
     if raw_probability is None:
         return None
@@ -322,7 +330,13 @@ def _market_probability(odd, mc, market_consensus=None):
 
     edge = raw_probability - consensus_probability
     calibrated_edge = max(-MAX_MARKET_EDGE, min(MAX_MARKET_EDGE, edge))
-    return max(0.02, min(0.98, consensus_probability + calibrated_edge))
+    calibrated_probability = consensus_probability + calibrated_edge
+
+    bookmaker_probability = (bookmaker_consensus or {}).get(_bookmaker_consensus_key(odd))
+    if bookmaker_probability is not None:
+        calibrated_probability = min(calibrated_probability, bookmaker_probability + MAX_BOOK_EDGE)
+
+    return max(0.02, min(0.98, calibrated_probability))
 
 
 def _format_market(market):
