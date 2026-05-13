@@ -38,6 +38,7 @@ def get_db():
 
 MIN_EV_THRESHOLD = float(os.getenv("MIN_EV_THRESHOLD", "5.0"))
 SIMULATION_COUNT = int(os.getenv("SIMULATION_COUNT", "20000"))
+MAX_MARKET_EDGE = float(os.getenv("MAX_MARKET_EDGE", "0.08"))
 
 
 def reset_non_afl_data(db: Session):
@@ -155,6 +156,7 @@ def simulate_new_data():
         live_odds = odds_api.fetch_live_odds()
         sync_matches_from_odds(db, live_odds)
         parsed_odds = odds_api.parse_odds(live_odds)
+        market_consensus = _build_market_consensus(parsed_odds)
         mc_cache = {}
 
         for odd in parsed_odds:
@@ -170,7 +172,11 @@ def simulate_new_data():
                     num_simulations=SIMULATION_COUNT,
                 )
 
-            model_probability = _market_probability(odd, mc_cache[match_key])
+            model_probability = _market_probability(
+                odd,
+                mc_cache[match_key],
+                market_consensus,
+            )
             if model_probability is None:
                 continue
 
@@ -214,7 +220,7 @@ def trigger_simulation(background_tasks: BackgroundTasks):
     return {"message": f"AFL simulation queued with {SIMULATION_COUNT:,} iterations per match."}
 
 
-def _market_probability(odd, mc):
+def _raw_market_probability(odd, mc):
     market = odd["market"]
     selection = odd["selection"]
     point = odd.get("point")
@@ -250,6 +256,73 @@ def _market_probability(odd, mc):
         return cover_count / len(mc["home_margins"])
 
     return None
+
+
+def _build_market_consensus(parsed_odds):
+    grouped = {}
+    for odd in parsed_odds:
+        market = odd["market"]
+        point = odd.get("point")
+        if market == "spreads" and point is not None:
+            point = abs(float(point))
+        elif market == "totals" and point is not None:
+            point = float(point)
+
+        key = (
+            odd["home_team"],
+            odd["away_team"],
+            market,
+            point,
+            odd["bookmaker"],
+        )
+        grouped.setdefault(key, []).append(odd)
+
+    consensus_samples = {}
+    for outcomes in grouped.values():
+        implied_sum = sum(1.0 / float(outcome["odds"]) for outcome in outcomes if float(outcome["odds"]) > 1.0)
+        if implied_sum <= 0:
+            continue
+
+        for outcome in outcomes:
+            outcome_key = _consensus_key(outcome)
+            fair_probability = (1.0 / float(outcome["odds"])) / implied_sum
+            consensus_samples.setdefault(outcome_key, []).append(fair_probability)
+
+    return {
+        key: sum(values) / len(values)
+        for key, values in consensus_samples.items()
+        if values
+    }
+
+
+def _consensus_key(odd):
+    point = odd.get("point")
+    if odd["market"] == "spreads" and point is not None:
+        point = abs(float(point))
+    elif odd["market"] == "totals" and point is not None:
+        point = float(point)
+
+    return (
+        odd["home_team"],
+        odd["away_team"],
+        odd["market"],
+        point,
+        odd["selection"],
+    )
+
+
+def _market_probability(odd, mc, market_consensus=None):
+    raw_probability = _raw_market_probability(odd, mc)
+    if raw_probability is None:
+        return None
+
+    consensus_probability = (market_consensus or {}).get(_consensus_key(odd))
+    if consensus_probability is None:
+        return raw_probability
+
+    edge = raw_probability - consensus_probability
+    calibrated_edge = max(-MAX_MARKET_EDGE, min(MAX_MARKET_EDGE, edge))
+    return max(0.02, min(0.98, consensus_probability + calibrated_edge))
 
 
 def _format_market(market):
