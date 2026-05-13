@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Dashboard from './components/Dashboard'
 import Matches from './components/Matches'
+import Methodology from './components/Methodology'
 import Settings from './components/Settings'
 
 function App() {
@@ -29,6 +30,12 @@ function App() {
             Matches & Probs
           </a>
           <a
+            className={`nav-item ${activeTab === 'methodology' ? 'active' : ''}`}
+            onClick={() => setActiveTab('methodology')}
+          >
+            Methodology
+          </a>
+          <a
             className={`nav-item ${activeTab === 'settings' ? 'active' : ''}`}
             onClick={() => setActiveTab('settings')}
           >
@@ -40,12 +47,9 @@ function App() {
       {/* Main Content Area */}
       <main className="main-content">
         {activeTab === 'dashboard' && <Dashboard />}
-        {activeTab === 'matches' && (
-          <Matches />
-        )}
-        {activeTab === 'settings' && (
-          <Settings />
-        )}
+        {activeTab === 'matches' && <Matches />}
+        {activeTab === 'methodology' && <Methodology />}
+        {activeTab === 'settings' && <Settings />}
       </main>
     </div>
   )

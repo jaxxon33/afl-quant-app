@@ -628,3 +628,87 @@ h4 {
   border-color: rgba(255, 51, 102, 0.2);
   background: linear-gradient(135deg, rgba(20, 20, 22, 0.8) 0%, rgba(255, 51, 102, 0.03) 100%);
 }
+
+/* Transparency UI: parameter grid, rating ladder, market table */
+.param-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0.75rem;
+}
+
+.param-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.param-card span {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.param-card strong {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', monospace;
+}
+
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+.rating-table, .market-table {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.9rem;
+}
+
+.rating-header, .market-header {
+    display: grid;
+    grid-template-columns: 40px 1fr 80px 80px 60px 100px;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rating-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 80px 80px 60px 100px;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+}
+
+.rating-row:hover {
+    background: var(--bg-tertiary);
+}
+
+.market-header {
+    grid-template-columns: 1.5fr 2fr 80px 80px;
+}
+
+.market-row {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 80px 80px;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.market-row:hover {
+    background: var(--bg-tertiary);
+}
