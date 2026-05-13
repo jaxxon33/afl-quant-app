@@ -11,10 +11,19 @@ export default function Methodology() {
     const fetchData = async () => {
         try {
             const res = await fetch(`${API_BASE}/methodology`)
+            if (!res.ok) {
+                setData(null)
+                return
+            }
             const json = await res.json()
-            setData(json)
+            if (json && json.model_parameters && json.teams) {
+                setData(json)
+            } else {
+                setData(null)
+            }
         } catch (e) {
             console.error("Methodology fetch error", e)
+            setData(null)
         } finally {
             setLoading(false)
         }
@@ -33,11 +42,29 @@ export default function Methodology() {
         }
     }
 
-    if (loading || !data) {
+    if (loading) {
         return (
             <div className="loader-container">
                 <div className="loader-circle"></div>
                 <p>Loading Methodology...</p>
+            </div>
+        )
+    }
+
+    if (!data) {
+        return (
+            <div>
+                <div className="header-actions" style={{ marginBottom: "2rem" }}>
+                    <div>
+                        <h1>Model <span className="neon-cyan-text">Methodology</span></h1>
+                    </div>
+                </div>
+                <div className="glass-card">
+                    <p style={{ color: 'var(--accent-danger)' }}>
+                        Methodology endpoint unavailable. The backend hasn't deployed v2.1 yet —
+                        trigger a manual deploy on Render (Dashboard → Manual Deploy → Deploy latest commit).
+                    </p>
+                </div>
             </div>
         )
     }

@@ -39,8 +39,23 @@ export default function Matches() {
             setContextLoading(true)
             try {
                 const res = await fetch(`${API_BASE}/matches/${selectedMatch.id}/context`)
+                if (!res.ok) {
+                    // Backend hasn't deployed v2.1 yet — fall back to the projection-only endpoint.
+                    const fallback = await fetch(`${API_BASE}/matches/${selectedMatch.id}/projection`)
+                    if (fallback.ok) {
+                        const proj = await fallback.json()
+                        setContext({ __legacy: true, projection: proj })
+                    } else {
+                        setContext(null)
+                    }
+                    return
+                }
                 const data = await res.json()
-                setContext(data)
+                if (data && data.calculation && data.probabilities) {
+                    setContext(data)
+                } else {
+                    setContext(null)
+                }
             } catch (e) {
                 console.error("Error fetching context", e)
                 setContext(null)
@@ -115,6 +130,32 @@ export default function Matches() {
                         </div>
                     ) : contextLoading || !context ? (
                         <div className="glass-card"><p style={{ color: "var(--text-secondary)" }}>Loading match context...</p></div>
+                    ) : context.__legacy ? (
+                        <div className="glass-card">
+                            <h2>{selectedMatch.home_team} <span style={{ color: "var(--text-secondary)" }}>vs</span> {selectedMatch.away_team}</h2>
+                            <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
+                                {new Date(selectedMatch.match_date?.split('.')[0]).toLocaleString()} &middot; {selectedMatch.venue}
+                            </p>
+                            <div className="projection-grid" style={{ marginBottom: '1.5rem' }}>
+                                <div className="projection-card">
+                                    <span>{context.projection.home_team}</span>
+                                    <strong>{(context.projection.home_win_probability * 100).toFixed(1)}%</strong>
+                                </div>
+                                <div className="projection-card">
+                                    <span>{context.projection.away_team}</span>
+                                    <strong>{(context.projection.away_win_probability * 100).toFixed(1)}%</strong>
+                                </div>
+                            </div>
+                            <div className="param-grid">
+                                <div className="param-card"><span>Expected margin</span><strong>{signed(context.projection.expected_margin)}</strong></div>
+                                <div className="param-card"><span>Expected total</span><strong>{num(context.projection.expected_total)}</strong></div>
+                                <div className="param-card"><span>Home expected</span><strong>{num(context.projection.expected_home_score)}</strong></div>
+                                <div className="param-card"><span>Away expected</span><strong>{num(context.projection.expected_away_score)}</strong></div>
+                            </div>
+                            <p style={{ color: 'var(--accent-danger)', marginTop: '1rem', fontSize: '0.85rem' }}>
+                                Full breakdown unavailable — backend is on a pre-v2.1 build. Manual redeploy of the Render service required.
+                            </p>
+                        </div>
                     ) : (
                         <>
                             {/* Header */}
