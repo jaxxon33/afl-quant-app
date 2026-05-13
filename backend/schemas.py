@@ -30,6 +30,8 @@ class BetBase(BaseModel):
     match_date: Optional[datetime.datetime] = None
     home_team: Optional[str] = None
     away_team: Optional[str] = None
+    kelly_fraction: Optional[float] = None
+    consensus_probability: Optional[float] = None
 
 class BetCreate(BetBase):
     pass

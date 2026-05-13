@@ -2,12 +2,20 @@ import { useState, useEffect } from 'react'
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
+function getSettings() {
+    return {
+        bankroll: Number(localStorage.getItem('bankroll') ?? '1000'),
+        kellyMultiplier: parseFloat(localStorage.getItem('kellyMultiplier') ?? '0.5'),
+    }
+}
+
 export default function Dashboard() {
     const [stats, setStats] = useState({ total_ev_bets: 0, avg_ev_percentage: 0.0, total_matches_upcoming: 0 })
     const [evBets, setEvBets] = useState([])
     const [loading, setLoading] = useState(true)
     const [simulating, setSimulating] = useState(false)
-    const [sortBy, setSortBy] = useState('ev_desc') // 'ev_desc', 'odds_desc', 'prob_desc'
+    const [sortBy, setSortBy] = useState('ev_desc')
+    const [settings, setSettings] = useState(getSettings)
 
     const fetchData = async () => {
         try {
@@ -27,9 +35,11 @@ export default function Dashboard() {
 
     useEffect(() => {
         fetchData()
-        // Poll for updates every 10 seconds
         const interval = setInterval(fetchData, 10000)
-        return () => clearInterval(interval)
+        // Re-read settings on focus in case user changed them in Settings tab
+        const onFocus = () => setSettings(getSettings())
+        window.addEventListener('focus', onFocus)
+        return () => { clearInterval(interval); window.removeEventListener('focus', onFocus) }
     }, [])
 
     const runSimulation = async () => {
@@ -125,15 +135,46 @@ export default function Dashboard() {
                     {sortedBets.length === 0 ? (
                         <p style={{ color: "var(--text-secondary)" }}>No +EV bets currently identified above the threshold.</p>
                     ) : (
-                        sortedBets.map((bet) => (
+                        sortedBets.map((bet) => {
+                            const bookImplied = 1 / bet.bookmaker_odds
+                            const consensusProb = bet.consensus_probability
+                            // Off-market: this book is pricing notably cheaper than market consensus
+                            const offMarket = consensusProb != null && (consensusProb - bookImplied) > 0.03
+
+                            const kellyStake = bet.kelly_fraction != null
+                                ? (settings.bankroll * bet.kelly_fraction * settings.kellyMultiplier)
+                                : null
+
+                            return (
                             <div key={bet.id} className="ev-card">
                                 <div className="ev-match-info">
                                     <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "4px" }}>
                                         {bet.home_team} vs {bet.away_team} &middot; {new Date(bet.match_date?.split('.')[0]).toLocaleDateString()}
                                     </div>
-                                    <div className="ev-market">{bet.market}</div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <div className="ev-market">{bet.market}</div>
+                                        {offMarket && (
+                                            <span style={{
+                                                fontSize: '0.7rem', padding: '2px 6px', borderRadius: '4px',
+                                                background: 'rgba(0,255,163,0.15)', color: 'var(--accent-primary)',
+                                                border: '1px solid var(--accent-primary)', fontWeight: 600,
+                                            }}>OFF MARKET</span>
+                                        )}
+                                    </div>
                                     <div className="ev-match-title">{bet.selection}</div>
-                                    <div className="ev-selection">Model Prob: {(bet.model_probability * 100).toFixed(1)}% vs Implied: {((1 / bet.bookmaker_odds) * 100).toFixed(1)}%</div>
+                                    <div className="ev-selection">
+                                        Model: {(bet.model_probability * 100).toFixed(1)}%
+                                        {consensusProb != null && <> &middot; Market: {(consensusProb * 100).toFixed(1)}%</>}
+                                        &nbsp;&middot; Book: {(bookImplied * 100).toFixed(1)}%
+                                    </div>
+                                    {kellyStake != null && (
+                                        <div style={{ fontSize: '0.8rem', color: '#8884d8', marginTop: '4px' }}>
+                                            Kelly stake: ${kellyStake.toFixed(2)}
+                                            <span style={{ color: 'var(--text-secondary)', marginLeft: '4px' }}>
+                                                ({(settings.kellyMultiplier * 100).toFixed(0)}% Kelly)
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="ev-odds-col">
@@ -145,7 +186,8 @@ export default function Dashboard() {
                                     +{bet.ev_percentage}%
                                 </div>
                             </div>
-                        ))
+                            )
+                        })
                     )}
                 </div>
             </div>

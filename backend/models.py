@@ -17,10 +17,12 @@ class Bet(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     match_id = Column(Integer)
-    market = Column(String) # H2H, Line, Total, Player Props
+    market = Column(String)
     selection = Column(String)
     bookmaker_odds = Column(Float)
     model_probability = Column(Float)
     ev_percentage = Column(Float)
     is_value_bet = Column(Boolean, default=False)
     bookmaker = Column(String)
+    kelly_fraction = Column(Float, nullable=True)
+    consensus_probability = Column(Float, nullable=True)

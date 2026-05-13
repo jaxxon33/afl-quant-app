@@ -2,19 +2,22 @@ import { useState } from 'react'
 import { Sliders, DollarSign, Percent, Save, ShieldAlert } from 'lucide-react'
 
 export default function Settings() {
-    const [minEV, setMinEV] = useState(5.0)
-    const [bankroll, setBankroll] = useState(1000)
-    const [kellyMultiplier, setKellyMultiplier] = useState(0.5)
+    const [minEV, setMinEV] = useState(() => parseFloat(localStorage.getItem('minEV') ?? '5.0'))
+    const [bankroll, setBankroll] = useState(() => Number(localStorage.getItem('bankroll') ?? '1000'))
+    const [kellyMultiplier, setKellyMultiplier] = useState(() => parseFloat(localStorage.getItem('kellyMultiplier') ?? '0.5'))
     const [saving, setSaving] = useState(false)
     const [saved, setSaved] = useState(false)
 
     const handleSave = () => {
         setSaving(true)
+        localStorage.setItem('minEV', minEV)
+        localStorage.setItem('bankroll', bankroll)
+        localStorage.setItem('kellyMultiplier', kellyMultiplier)
         setTimeout(() => {
             setSaving(false)
             setSaved(true)
             setTimeout(() => setSaved(false), 3000)
-        }, 800)
+        }, 400)
     }
 
     return (

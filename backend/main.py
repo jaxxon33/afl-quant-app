@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Depends, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import inspect as sa_inspect, text
 from sqlalchemy.orm import Session
 import models
 import schemas
@@ -8,8 +9,35 @@ import datetime
 import os
 import afl_engine
 import odds_api
+import squiggle_api
 
 models.Base.metadata.create_all(bind=engine)
+
+# In-memory Elo ratings cache, populated at startup from Squiggle results.
+_elo_ratings: dict = {}
+
+
+def run_migrations():
+    """Add any new columns to existing tables without full Alembic migrations."""
+    inspector = sa_inspect(engine)
+    existing = {col["name"] for col in inspector.get_columns("bets")}
+    new_cols = {"kelly_fraction": "FLOAT", "consensus_probability": "FLOAT"}
+    with engine.connect() as conn:
+        for col, col_type in new_cols.items():
+            if col not in existing:
+                conn.execute(text(f"ALTER TABLE bets ADD COLUMN {col} {col_type}"))
+                conn.commit()
+
+
+def build_elo_ratings():
+    global _elo_ratings
+    results = squiggle_api.fetch_completed_games()
+    if results:
+        _elo_ratings = afl_engine.update_elo_ratings(results)
+        print(f"Elo ratings built from {len(results)} completed games.")
+    else:
+        _elo_ratings = {team: p["rating"] for team, p in afl_engine.TEAM_PROFILES.items()}
+        print("Using base ratings (Squiggle returned no data).")
 
 app = FastAPI(title="AFL +EV Betting Model")
 
@@ -90,9 +118,24 @@ def sync_matches_from_odds(db: Session, live_odds):
 
 @app.on_event("startup")
 async def startup_event():
+    run_migrations()
+    build_elo_ratings()
     db = SessionLocal()
     seed_database(db)
     db.close()
+
+@app.get("/api/elo-ratings")
+def get_elo_ratings():
+    return {
+        "ratings": dict(sorted(_elo_ratings.items(), key=lambda x: x[1], reverse=True))
+    }
+
+
+@app.post("/api/refresh-elo")
+def refresh_elo(background_tasks: BackgroundTasks):
+    background_tasks.add_task(build_elo_ratings)
+    return {"message": "Elo ratings refresh queued from Squiggle."}
+
 
 @app.get("/api/matches", response_model=list[schemas.Match])
 def get_matches(db: Session = Depends(get_db)):
@@ -105,7 +148,7 @@ def get_match_projection(match_id: int, db: Session = Depends(get_db)):
     if not match:
         raise HTTPException(status_code=404, detail="Match not found")
 
-    projection = afl_engine.predict_match(match.home_team, match.away_team, match.venue)
+    projection = afl_engine.predict_match(match.home_team, match.away_team, match.venue, elo_ratings=_elo_ratings)
     return schemas.MatchProjection(
         match_id=match.id,
         home_team=match.home_team,
@@ -171,6 +214,7 @@ def simulate_new_data():
                     a_team,
                     afl_engine.get_default_venue(h_team),
                     num_simulations=SIMULATION_COUNT,
+                    elo_ratings=_elo_ratings,
                 )
 
             model_probability = _market_probability(
@@ -199,6 +243,9 @@ def simulate_new_data():
             if not match:
                 continue
 
+            consensus_prob = (market_consensus or {}).get(_consensus_key(odd))
+            kelly = afl_engine.calculate_kelly(model_probability, bookmaker_odds)
+
             db.add(
                 models.Bet(
                     match_id=match.id,
@@ -209,6 +256,8 @@ def simulate_new_data():
                     ev_percentage=ev_percentage,
                     is_value_bet=True,
                     bookmaker=odd["bookmaker"],
+                    kelly_fraction=kelly,
+                    consensus_probability=round(consensus_prob, 3) if consensus_prob else None,
                 )
             )
 

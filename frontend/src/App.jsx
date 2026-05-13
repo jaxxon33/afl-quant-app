@@ -12,7 +12,7 @@ function App() {
       <aside className="sidebar">
         <div className="sidebar-logo">
           <div className="logo-dot"></div>
-          AFL Quant
+          AFL Quant v2
         </div>
 
         <nav>
